@@ -300,7 +300,9 @@ body.busy{cursor:progress}
 @media (max-width:900px){.banner h1{font-size:26px}.phead h2{font-size:24px}}
 .mode{margin:4px 0 8px}
 .mode button{padding:5px 14px;font-size:14px}
-.ink{margin-top:4px}
+.ink{margin-top:4px;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.ink canvas{-webkit-tap-highlight-color:transparent}
+.mode button{-webkit-user-select:none;user-select:none}
 .ink canvas{display:block;width:100%;height:auto;border:2px solid var(--qf-navy);touch-action:none;background:#fff;cursor:crosshair}
 .ink.locked canvas{border-color:var(--grey-200);cursor:default;pointer-events:none}
 .ink.locked .inkbar,.ink.locked .inkhint{display:none}
@@ -1246,6 +1248,10 @@ class Ink {
       if (!cur) return; e.preventDefault();
       (e.getCoalescedEvents ? e.getCoalescedEvents() : [e]).forEach(ev => { cur.p.push(...pos(ev)); this.seg(cur, cur.p.length - 4); });
     });
+    // iPad: Touch-Standardverhalten (Markieren, Lupe, Doppeltipp-Zoom, „Alles auswählen“) auf der Schreibfläche unterdrücken
+    ['touchstart', 'touchmove', 'touchend'].forEach(t => this.cv.addEventListener(t, e => { if (!this.locked) e.preventDefault(); }, { passive: false }));
+    this.cv.addEventListener('contextmenu', e => e.preventDefault());
+    this.cv.addEventListener('selectstart', e => e.preventDefault());
     const end = () => { if (cur) { cur = null; this.save(); } };
     this.cv.addEventListener('pointerup', end); this.cv.addEventListener('pointercancel', end);
     this.size(); this.loadBg();
@@ -1293,7 +1299,8 @@ function initInk() {
     const sw = t.previousElementSibling, box = document.createElement('div'); t.after(box);
     new Ink(box, k);
     const set = m => { sw.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.m === m)); t.hidden = m === 'p'; box.hidden = m !== 'p'; };
-    sw.querySelectorAll('button').forEach(b => b.onclick = () => { S.modes[k] = S.penDefault = b.dataset.m; save(); set(b.dataset.m); });
+    sw.querySelectorAll('button').forEach(b => b.onclick = () => { S.modes[k] = S.penDefault = b.dataset.m; save(); set(b.dataset.m);
+      if (b.dataset.m === 't') { const sel = getSelection(); sel && sel.removeAllRanges(); t.focus(); } });
     set(S.modes[k] || (INKS[k].points() ? 'p' : t.value ? 't' : S.penDefault || 't'));
   });
 }
