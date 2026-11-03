@@ -178,6 +178,10 @@ footer{border-top:6px solid var(--qf-navy);padding-block:32px;
 .btn:disabled{opacity:.35;cursor:not-allowed}
 .pred{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
 .pred label{display:flex;flex-direction:column;gap:4px;font-weight:700;color:var(--qf-navy);font-size:15px}
+.stepper{display:flex;gap:6px;align-items:stretch}
+.stepper button{all:unset;cursor:pointer;min-width:48px;text-align:center;font-size:26px;font-weight:700;color:#fff;background:var(--qf-navy);-webkit-user-select:none;user-select:none}
+.stepper input{text-align:center}
+.pred input:disabled ~ button,.stepper:has(input:disabled) button{opacity:.35;cursor:default}
 .pred input{font:inherit;font-size:20px;font-weight:700;color:var(--qf-navy);padding:6px 10px;border:2px solid var(--qf-navy);width:100%}
 .pred input:disabled{background:var(--qf-navy-tint);border-color:var(--grey-200)}
 .counters.two{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -1049,6 +1053,12 @@ document.querySelectorAll('[data-save]').forEach(el => {
     S.texts[el.dataset.save] = el.value; save();
   });
 });
+// Hypothese in %: Plus/Minus-Knöpfe, damit man ohne Tastatur oder Handschrift-Erkennung eintragen kann
+document.querySelectorAll('.pred input').forEach(inp => {
+  const w = document.createElement('div'); w.className = 'stepper'; inp.before(w);
+  w.innerHTML = '<button type="button" data-d="-5" aria-label="5 % weniger">−</button>'; w.append(inp); w.insertAdjacentHTML('beforeend', '<button type="button" data-d="5" aria-label="5 % mehr">+</button>');
+  w.querySelectorAll('button').forEach(b => b.onclick = () => { if (inp.disabled) return; const v = Math.max(0, Math.min(100, (+inp.value || 0) + +b.dataset.d)); inp.value = v; inp.dispatchEvent(new Event('input')); });
+});
 // Tabelle/Diagramm umschalten
 document.addEventListener('click', e => {
   const b = e.target.closest('[data-view]'); if (!b) return;
@@ -1236,24 +1246,34 @@ class Ink {
           URL.revokeObjectURL(url); mediaSet('photo:' + key, c.toDataURL('image/jpeg', 0.82)); this.loadBg(); }); e.target.value = ''; };
       bar.querySelector('[data-nophoto]').onclick = () => { if (confirm('Foto entfernen? Eure Zeichnung bleibt.')) { mediaSet('photo:' + key, null); this.loadBg(); } };
     }
-    let cur = null;
+    // Eingabe: auf iPad/Tablet über Touch-Events (Apple Pencil = touchType „stylus“), sonst Maus/Stift über Pointer-Events.
+    // Touch-Events lassen sich vollständig abfangen; so unterbricht Safari den Strich nicht (Markieren, Scribble, Lupe).
+    let cur = null, tid = null;
     const pos = e => { const r = this.cv.getBoundingClientRect(), k = INK_W / r.width; return [Math.round((e.clientX - r.left) * k), Math.round((e.clientY - r.top) * k)]; };
+    const start = (pt, pen) => { if (this.locked) return false; if (pen) penSeen = true; cur = { c: this.color, p: pos(pt) }; this.strokes.push(cur); this.seg(cur, 0); return true; };
+    const move = pt => { if (!cur) return; cur.p.push(...pos(pt)); this.seg(cur, cur.p.length - 2); };
+    const end = () => { if (cur) { cur = null; tid = null; this.save(); } };
+    const isPen = t => t.touchType === 'stylus';
+    this.cv.addEventListener('touchstart', e => {
+      if (this.locked) return; e.preventDefault();
+      if (cur) return;
+      const t = [...e.changedTouches].find(t => isPen(t) || !penSeen); if (!t) return;
+      if (start(t, isPen(t))) tid = t.identifier;
+    }, { passive: false });
+    this.cv.addEventListener('touchmove', e => {
+      if (this.locked) return; e.preventDefault();
+      const t = [...e.changedTouches].find(t => t.identifier === tid); if (t) move(t);
+    }, { passive: false });
+    const tend = e => { if ([...e.changedTouches].some(t => t.identifier === tid)) end(); };
+    this.cv.addEventListener('touchend', tend); this.cv.addEventListener('touchcancel', tend);
     this.cv.addEventListener('pointerdown', e => {
-      if (this.locked || (e.pointerType === 'touch' && penSeen) || e.button > 0) return;
-      if (e.pointerType === 'pen') penSeen = true;
-      e.preventDefault(); this.cv.setPointerCapture(e.pointerId);
-      cur = { c: this.color, p: pos(e) }; this.strokes.push(cur); this.seg(cur, 0);
+      if (e.pointerType !== 'mouse' && 'ontouchstart' in window) return;   // läuft über Touch-Events
+      if (e.button > 0) return; e.preventDefault(); this.cv.setPointerCapture(e.pointerId); start(e, e.pointerType === 'pen');
     });
-    this.cv.addEventListener('pointermove', e => {
-      if (!cur) return; e.preventDefault();
-      (e.getCoalescedEvents ? e.getCoalescedEvents() : [e]).forEach(ev => { cur.p.push(...pos(ev)); this.seg(cur, cur.p.length - 4); });
-    });
-    // iPad: Touch-Standardverhalten (Markieren, Lupe, Doppeltipp-Zoom, „Alles auswählen“) auf der Schreibfläche unterdrücken
-    ['touchstart', 'touchmove', 'touchend'].forEach(t => this.cv.addEventListener(t, e => { if (!this.locked) e.preventDefault(); }, { passive: false }));
+    this.cv.addEventListener('pointermove', e => { if (!cur || tid !== null) return; e.preventDefault(); (e.getCoalescedEvents ? e.getCoalescedEvents() : [e]).forEach(move); });
+    this.cv.addEventListener('pointerup', () => { if (tid === null) end(); }); this.cv.addEventListener('pointercancel', () => { if (tid === null) end(); });
     this.cv.addEventListener('contextmenu', e => e.preventDefault());
     this.cv.addEventListener('selectstart', e => e.preventDefault());
-    const end = () => { if (cur) { cur = null; this.save(); } };
-    this.cv.addEventListener('pointerup', end); this.cv.addEventListener('pointercancel', end);
     this.size(); this.loadBg();
   }
   size() { this.cv.width = INK_W; this.cv.height = Math.round(INK_W * this.ratio); }
