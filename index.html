@@ -313,6 +313,12 @@ body.busy{cursor:progress}
 .inkbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:6px}
 .inkbar button,.inkbar .pbtn{all:unset;cursor:pointer;border:2px solid var(--qf-navy);padding:4px 10px;font-size:14px;font-weight:700;color:var(--qf-navy);background:#fff}
 .inkbar button[data-c]{padding:4px 6px;line-height:0}
+.inkbar button[data-w]{padding:4px 8px;line-height:0;min-height:18px;display:inline-flex;align-items:center}
+.inkbar button[data-w] b{display:inline-block;border-radius:50%;background:var(--qf-navy)}
+.inkbar button[data-w][aria-pressed="true"]{box-shadow:0 0 0 3px var(--fx-orange)}
+.inkbar button[data-tool][aria-pressed="true"]{background:var(--qf-navy);color:#fff}
+.inkbar .sep{width:6px}
+.ink.erasing canvas{cursor:cell}
 .inkbar button[data-c] i{display:inline-block;width:18px;height:18px;border-radius:50%}
 .inkbar button[data-c][aria-pressed="true"]{box-shadow:0 0 0 3px var(--fx-orange)}
 .inkhint{font-size:13px;color:var(--muted);margin:4px 0 0}
@@ -1244,23 +1250,30 @@ function mediaSet(k, v) {
 }
 const mediaClear = () => new Promise(res => { try { const tx = idb.transaction('m', 'readwrite'); tx.objectStore('m').clear(); tx.oncomplete = res; tx.onerror = res; } catch (e) { res(); } });
 
-const INKS = {}, INK_W = 1200, COLORS = ['#000000', '#3F9AD6', '#CF6F82'];
+const INKS = {}, INK_W = 1200, COLORS = ['#000000', '#3F9AD6', '#CF6F82'], WIDTHS = [3, 6, 12], ERASE_R = 22;
 let penSeen = false;   // nach dem ersten Stiftstrich zählen Finger nicht mehr (Handballen)
 class Ink {
   constructor(host, key, { photo = false, ratio = 0.34, lines = true } = {}) {
-    Object.assign(this, { key, photo, lines, ratio: MEDIA['h:' + key] || ratio, color: COLORS[0], locked: false, bg: null });
+    Object.assign(this, { key, photo, lines, ratio: MEDIA['h:' + key] || ratio, color: COLORS[0], w: WIDTHS[1], tool: 'pen', locked: false, bg: null });
     this.strokes = MEDIA['ink:' + key] || [];
     host.insertAdjacentHTML('beforeend', `<div class="ink" data-ink="${key}"><div class="inkbar">
-      ${COLORS.map((c, i) => `<button data-c="${c}" aria-pressed="${!i}" title="Farbe"><i style="background:${c}"></i></button>`).join('')}
+      <button data-tool="pen" aria-pressed="true">Stift</button><button data-tool="erase" aria-pressed="false">Radierer</button><span class="sep"></span>
+      ${COLORS.map((c, i) => `<button data-c="${c}" aria-pressed="${!i}" title="Farbe"><i style="background:${c}"></i></button>`).join('')}<span class="sep"></span>
+      ${WIDTHS.map((w, i) => `<button data-w="${w}" aria-pressed="${i === 1}" title="Strichdicke"><b style="width:${w + 4}px;height:${w + 4}px"></b></button>`).join('')}<span class="sep"></span>
       <button data-undo>Rückgängig</button><button data-clear>Löschen</button>
       ${photo ? '<label class="pbtn">Foto aufnehmen oder wählen<input type="file" accept="image/*" hidden></label><button data-nophoto hidden>Foto entfernen</button>' : '<button data-more>Mehr Platz</button>'}
       </div><canvas></canvas><p class="inkhint">${photo ? 'Mit dem Stift (oder Finger) auf das Foto oder die leere Fläche zeichnen.' : 'Mit dem Apple Pencil hineinschreiben.'}</p></div>`);
     this.el = host.lastElementChild; this.cv = this.el.querySelector('canvas'); this.x = this.cv.getContext('2d');
     INKS[key] = this;
     const bar = this.el.querySelector('.inkbar');
-    bar.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { this.color = b.dataset.c; bar.querySelectorAll('[data-c]').forEach(o => o.setAttribute('aria-pressed', o === b)); });
-    bar.querySelector('[data-undo]').onclick = () => { this.strokes.pop(); this.save(); this.draw(); };
-    bar.querySelector('[data-clear]').onclick = () => { if (this.strokes.length && confirm('Alles in diesem Feld löschen?')) { this.strokes = []; this.save(); this.draw(); } };
+    const pick = (sel, b) => bar.querySelectorAll(sel).forEach(o => o.setAttribute('aria-pressed', o === b));
+    const setTool = t => { this.tool = t; pick('[data-tool]', bar.querySelector(`[data-tool="${t}"]`)); this.el.classList.toggle('erasing', t === 'erase'); };
+    bar.querySelectorAll('[data-tool]').forEach(b => b.onclick = () => setTool(b.dataset.tool));
+    bar.querySelectorAll('[data-c]').forEach(b => b.onclick = () => { this.color = b.dataset.c; pick('[data-c]', b); setTool('pen'); });
+    bar.querySelectorAll('[data-w]').forEach(b => b.onclick = () => { this.w = +b.dataset.w; pick('[data-w]', b); setTool('pen'); });
+    this.hist = [];   // für Rückgängig: Radieren merkt sich den Stand davor
+    bar.querySelector('[data-undo]').onclick = () => { const h = this.hist.length ? this.hist.pop() : null; if (h) this.strokes = h; else this.strokes.pop(); this.save(); this.draw(); };
+    bar.querySelector('[data-clear]').onclick = () => { if (this.strokes.length && confirm('Alles in diesem Feld löschen?')) { this.hist.push(this.strokes); this.strokes = []; this.save(); this.draw(); } };
     bar.querySelector('[data-more]')?.addEventListener('click', () => { this.ratio = Math.min(1.5, this.ratio + 0.17); mediaSet('h:' + key, this.ratio); this.size(); this.draw(); });
     if (photo) {
       bar.querySelector('input').onchange = e => { const f = e.target.files[0]; if (!f) return; const url = URL.createObjectURL(f);
@@ -1273,9 +1286,11 @@ class Ink {
     // Touch-Events lassen sich vollständig abfangen; so unterbricht Safari den Strich nicht (Markieren, Scribble, Lupe).
     let cur = null, tid = null;
     const pos = e => { const r = this.cv.getBoundingClientRect(), k = INK_W / r.width; return [Math.round((e.clientX - r.left) * k), Math.round((e.clientY - r.top) * k)]; };
-    const start = (pt, pen) => { if (this.locked) return false; if (pen) penSeen = true; cur = { c: this.color, p: pos(pt) }; this.strokes.push(cur); this.seg(cur, 0); return true; };
-    const move = pt => { if (!cur) return; cur.p.push(...pos(pt)); this.seg(cur, cur.p.length - 2); };
-    const end = () => { if (cur) { cur = null; tid = null; this.save(); } };
+    const start = (pt, pen) => { if (this.locked) return false; if (pen) penSeen = true;
+      if (this.tool === 'erase') { cur = { erase: true, n: this.strokes.length, prev: this.strokes.slice() }; this.eraseAt(pos(pt)); return true; }
+      cur = { c: this.color, w: this.w, p: pos(pt) }; this.strokes.push(cur); this.seg(cur, 0); return true; };
+    const move = pt => { if (!cur) return; if (cur.erase) return this.eraseAt(pos(pt)); cur.p.push(...pos(pt)); this.seg(cur, cur.p.length - 2); };
+    const end = () => { if (cur) { const e = cur; cur = null; tid = null; if (e.erase && e.n !== this.strokes.length) this.hist.push(e.prev); if (!e.erase) this.hist.push(null); if (!e.erase || e.n !== this.strokes.length) this.save(); } };
     const isPen = t => t.touchType === 'stylus';
     this.cv.addEventListener('touchstart', e => {
       if (this.locked) return; e.preventDefault();
@@ -1306,8 +1321,13 @@ class Ink {
     if (!src) { this.bg = null; if (this.photo) this.ratio = 0.6; this.size(); this.draw(); return; }
     loadImg(src).then(img => { this.bg = img; this.ratio = img.height / img.width; this.size(); this.draw(); });
   }
+  eraseAt([px, py]) {   // Radierer: ganze Striche entfernen, die berührt werden
+    const r2 = ERASE_R * ERASE_R, d2 = (ax, ay, bx, by) => { const dx = bx - ax, dy = by - ay, L = dx * dx + dy * dy, t = L ? Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / L)) : 0, ex = ax + t * dx - px, ey = ay + t * dy - py; return ex * ex + ey * ey; };
+    const hit = st => { const p = st.p, r = r2 + (st.w || 4) * (st.w || 4); if (p.length === 2) return d2(p[0], p[1], p[0], p[1]) <= r; for (let i = 2; i < p.length; i += 2) if (d2(p[i - 2], p[i - 1], p[i], p[i + 1]) <= r) return true; return false; };
+    const n = this.strokes.length; this.strokes = this.strokes.filter(st => !hit(st)); if (this.strokes.length !== n) this.draw();
+  }
   seg(st, i) {   // ein Stück des laufenden Strichs zeichnen
-    const x = this.x, p = st.p; x.strokeStyle = st.c; x.lineWidth = 4; x.lineCap = x.lineJoin = 'round'; x.beginPath();
+    const x = this.x, p = st.p; x.strokeStyle = st.c; x.lineWidth = st.w || 4; x.lineCap = x.lineJoin = 'round'; x.beginPath();
     if (i <= 0) { x.moveTo(p[0], p[1]); x.lineTo(p[0] + 0.1, p[1]); } else { x.moveTo(p[i - 2], p[i - 1]); x.lineTo(p[i], p[i + 1]); }
     x.stroke();
   }
@@ -1316,10 +1336,10 @@ class Ink {
     x.fillStyle = '#fff'; x.fillRect(0, 0, W, H);
     if (this.bg) x.drawImage(this.bg, 0, 0, W, H);
     else if (this.lines) { x.strokeStyle = '#E4E7EE'; x.lineWidth = 2; for (let y = 70; y < H; y += 70) { x.beginPath(); x.moveTo(20, y); x.lineTo(W - 20, y); x.stroke(); } }
-    this.strokes.forEach(st => { x.strokeStyle = st.c; x.lineWidth = 4; x.lineCap = x.lineJoin = 'round'; x.beginPath(); x.moveTo(st.p[0], st.p[1]);
+    this.strokes.forEach(st => { x.strokeStyle = st.c; x.lineWidth = st.w || 4; x.lineCap = x.lineJoin = 'round'; x.beginPath(); x.moveTo(st.p[0], st.p[1]);
       for (let i = 2; i < st.p.length; i += 2) x.lineTo(st.p[i], st.p[i + 1]); if (st.p.length === 2) x.lineTo(st.p[0] + 0.1, st.p[1]); x.stroke(); });
   }
-  save() { mediaSet('ink:' + this.key, this.strokes.map(s => ({ c: s.c, p: s.p.slice() }))); if (cur.id === 'ende') renderSummary(); }
+  save() { mediaSet('ink:' + this.key, this.strokes.map(s => ({ c: s.c, w: s.w, p: s.p.slice() }))); if (cur.id === 'ende') renderSummary(); }
   points() { return this.strokes.reduce((n, s) => n + s.p.length / 2, 0); }
   empty() { return !this.points() && !this.bg; }
   lock() { this.locked = true; this.el.classList.add('locked'); }
@@ -1345,6 +1365,9 @@ function initInk() {
     sw.querySelectorAll('button').forEach(b => b.onclick = () => { S.modes[k] = S.penDefault = b.dataset.m; save(); set(b.dataset.m);
       if (b.dataset.m === 't') { const sel = getSelection(); sel && sel.removeAllRanges(); t.focus(); } });
     set(S.modes[k] || (INKS[k].points() ? 'p' : t.value ? 't' : S.penDefault || 't'));
+    // Apple Pencil im Tippen-Feld: keine Handschrift-Umwandlung, sondern auf „Mit Stift schreiben“ umschalten
+    t.addEventListener('touchstart', e => { if (t.disabled || ![...e.changedTouches].some(x => x.touchType === 'stylus')) return;
+      e.preventDefault(); t.blur(); S.modes[k] = S.penDefault = 'p'; save(); set('p'); }, { passive: false });
   });
 }
 
