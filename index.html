@@ -779,7 +779,10 @@ label.btn{display:inline-block}
 
 <script>
 /* Fehler sichtbar machen, damit man sie auf dem iPad melden kann */
-window.addEventListener('error', e => { const w = document.getElementById('jsWarn'); if (w) { w.hidden = false; w.querySelector('p').textContent = 'Programmfehler: ' + e.message + ' (Zeile ' + e.lineno + '). Bitte diese Meldung an die Lehrkraft geben.'; } });
+// Nur eigene Fehler melden: „Script error.“ ohne Zeile stammt aus fremden Skripten (z. B. Erweiterungen, Übersetzer) und wird ignoriert.
+window.addEventListener('error', e => {
+  if (!e.lineno || /^Script error/i.test(e.message || '') || (e.filename && e.filename.split('#')[0] !== location.href.split('#')[0])) return;
+  const w = document.getElementById('jsWarn'); if (w) { w.hidden = false; w.querySelector('p').textContent = 'Programmfehler: ' + e.message + ' (Zeile ' + e.lineno + '). Bitte diese Meldung an die Lehrkraft geben.'; } });
 /* MZI mit einzelnen Photonen – Lernumgebung foeXlab
    Kapitel 1: drei Aufbauten und Spiegel verschieben (Simulation).
    Kapitel 2: Quantenradierer am Thorlabs-Aufbau (nur Aufgaben, Fotos, Texte).
