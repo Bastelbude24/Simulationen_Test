@@ -221,6 +221,7 @@ td.c1{color:var(--cAB);font-weight:700}td.c2{color:var(--cAC);font-weight:700}
 .bar button[aria-current="true"]{border-bottom-color:var(--fx-orange);font-weight:700}
 .bar button:disabled{opacity:.4;cursor:not-allowed}
 .bar button.teach{margin-left:auto;font-size:14px;opacity:.85}
+.bar label.teach3{all:unset;cursor:pointer;color:#fff;font-size:14px;opacity:.85;white-space:nowrap;padding:14px 10px 11px 12px;border-left:1px solid rgba(255,255,255,.4);margin:10px 0;padding-top:4px;padding-bottom:1px;border-bottom:3px solid transparent;display:inline-flex;align-items:center}
 .bar button.teach2{font-size:14px;opacity:.85}
 .bar button:focus-visible{outline:3px solid var(--fx-orange);outline-offset:-3px}
 .phead{margin-bottom:20px}
@@ -361,7 +362,8 @@ label.btn{display:inline-block}
     <button data-ch="2"><span>2</span>Quantenradierer</button>
     <button data-ch="3"><span>3</span>Delayed choice</button>
     <button data-ch="4"><span>✓</span>Sicherung</button>
-    <button data-export class="teach" title="Alle Antworten, Zeichnungen, Fotos und Messungen als Datei sichern">Zwischenstand sichern</button>
+    <button data-export class="teach" title="Zwischenstand sichern: alle Antworten, Zeichnungen, Fotos und Messungen als Datei">Zwischenstand: Sichern</button>
+    <label class="teach3" title="Einen gesicherten Zwischenstand wieder öffnen">Laden<input type="file" accept=".json,application/json" data-import hidden></label>
     <button data-ch="L" class="teach2">Für Lehrkräfte</button>
   </div>
 </nav>
@@ -1250,7 +1252,7 @@ function mediaSet(k, v) {
 }
 const mediaClear = () => new Promise(res => { try { const tx = idb.transaction('m', 'readwrite'); tx.objectStore('m').clear(); tx.oncomplete = res; tx.onerror = res; } catch (e) { res(); } });
 
-const INKS = {}, INK_W = 1200, COLORS = ['#000000', '#3F9AD6', '#CF6F82'], WIDTHS = [3, 6, 12], ERASE_R = 22;
+const INKS = {}, INK_W = 1200, COLORS = ['#000000', '#3F9AD6', '#2E9E4F', '#CF6F82'], WIDTHS = [3, 6, 12], ERASE_R = 22;
 let penSeen = false;   // nach dem ersten Stiftstrich zählen Finger nicht mehr (Handballen)
 class Ink {
   constructor(host, key, { photo = false, ratio = 0.34, lines = true } = {}) {
@@ -1423,7 +1425,8 @@ const scrollEnd = id => { const tw = $(id).closest('.tablewrap'); tw.scrollTop =
 
 // So funktioniert das Experiment
 DEF['k3-funk'] = { enter() { dcEnter({ tl: true, phi0: 0 }); }, render() { $('demo').disabled = BUSY; } };
-$('demo').onclick = async () => { busy(true); await onePhoton(0); await sleep(900); busy(false); dcEnter({ tl: true, phi0: 0 }); };
+// Gesamtablauf: Anzeige bleibt nach dem Durchlauf stehen und wird erst beim nächsten Durchlauf zurückgesetzt
+$('demo').onclick = async () => { busy(true); dcEnter({ tl: true, phi0: 0 }); await onePhoton(0); busy(false); };
 document.querySelectorAll('.quiz').forEach(q => {
   const k = q.dataset.quiz, items = [...q.querySelectorAll('li')];
   const opts = items.map(li => { const ok = /\(richtig\)\s*$/.test(li.textContent); return { ok, html: li.innerHTML.replace(/\s*\(richtig\)\s*$/, '') }; });
