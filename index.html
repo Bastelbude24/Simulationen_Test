@@ -442,7 +442,8 @@ label.btn{display:inline-block}
         </div>
         <div class="step" data-flag="quiz-a3int"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="a3int" data-text="1:Kontrolle Interferenz"><p>Ermittelt, welche Art von Interferenz an den Detektoren auftritt, wenn beide Arme gleich lang sind.</p>
 <ul><li>Konstruktive Interferenz an beiden Detektoren.</li><li>Konstruktive Interferenz an Detektor 1, destruktive an Detektor 2. (richtig)</li><li>Destruktive Interferenz an Detektor 1, konstruktive an Detektor 2.</li><li>Destruktive Interferenz an beiden Detektoren.</li></ul>
-<p>Bei falscher Antwort: Vergleicht für jeden Detektor die Summen der beiden Möglichkeiten.</p></div></div>
+<p>Bei falscher Antwort: Vergleicht für jeden Detektor die Summen der beiden Möglichkeiten.</p>
+<p>Bei richtiger Antwort: Richtig, 100 % Zählrate / Wahrscheinlichkeit wird als konstruktive Interferenz und 0 % Zählrate / Wahrscheinlichkeit als destruktive Interferenz bezeichnet.</p></div></div>
         <div class="step">
           <div class="lbl">F · Gegensätzliche Muster</div>
           <div class="prose task" data-text="1:Gegensätzliche Muster"><p>Erläutert die Entstehung von zwei gegensätzlichen Mustern in dem Aufbau.</p></div>
@@ -1514,14 +1515,17 @@ document.querySelectorAll('.quiz').forEach(q => {
   // optional: Absatz „Bei falscher Antwort: …“ als eigener Hinweis
   const hp = [...q.querySelectorAll('p')].find(p => /^Bei falscher Antwort:/.test(p.textContent));
   const hint = hp ? hp.innerHTML.replace(/^Bei falscher Antwort:\s*/, '') : 'Noch nicht richtig. Lest noch einmal im Text nach.'; hp?.remove();
+  // optional: Absatz „Bei richtiger Antwort: …“ ersetzt das schlichte „Richtig.“
+  const rp = [...q.querySelectorAll('p')].find(p => /^Bei richtiger Antwort:/.test(p.textContent));
+  const okText = rp ? rp.innerHTML.replace(/^Bei richtiger Antwort:\s*/, '') : 'Richtig.'; rp?.remove();
   q.insertAdjacentHTML('beforeend', `<div class="opts">${opts.map((o, i) => `<button class="opt" data-i="${i}">${o.html}</button>`).join('')}</div><p class="status"></p>`);
   const fb = q.querySelector('.status');
   const mark = () => q.querySelectorAll('.opt').forEach((b, i) => { b.classList.toggle('right', S.quiz[k] === i); b.disabled = S.quiz[k] != null; });
   q.querySelectorAll('.opt').forEach((b, i) => b.onclick = () => {
-    if (opts[i].ok) { S.quiz[k] = i; S.flags['quiz-' + k] = true; fb.textContent = 'Richtig.'; save(); mark(); render(); }
+    if (opts[i].ok) { S.quiz[k] = i; S.flags['quiz-' + k] = true; fb.innerHTML = okText; save(); mark(); render(); }
     else { b.classList.add('wrong'); fb.innerHTML = hint; }
   });
-  if (S.quiz[k] != null) fb.textContent = 'Richtig.';
+  if (S.quiz[k] != null) fb.innerHTML = okText;
   mark();
 });
 
