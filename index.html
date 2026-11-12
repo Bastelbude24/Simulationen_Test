@@ -429,14 +429,14 @@ label.btn{display:inline-block}
         <div class="step" data-lock>
           <div class="lbl">D · Abgleich mit dem realen Experiment</div>
           <div class="prose task" data-text="1:Abgleich der Simulation mit dem realen Experiment"><p>Schaut in die Mitte der Musters an eurem realen Aufbau. Ordnet die beiden Schirme den Detektoren 1 und 2 zu.</p></div>
-          <div class="photo" data-photo="a3-skizze" data-q="Skizze: Muster am Thorlabs-Aufbau und Detektor 1"></div>
+          <div class="photo" data-photo="a3-skizze" data-q="Skizze: Muster am realen Aufbau und Detektor 1"></div>
           <textarea data-save="a3-leit" data-req data-q="Zuordnung der Schirme zu den Detektoren"></textarea>
         </div>
         <div class="step" data-flag="phase-tab">
           <div class="lbl">E · Phasensprünge</div>
           <div class="card prose" data-text="1:Phasensprünge Info"><p>Bei der Reflexion an einem Bauteil kann ein Phasensprung auftreten. Für die Bauteile im Interferometer gilt:</p>
 <ul><li><b>Strahlteiler:</b> Bei der Reflexion entsteht ein Phasensprung von π/2, bei der Transmission ändert sich die Phase nicht.</li><li><b>Spiegel:</b> Bei der Reflexion entsteht ein Phasensprung von π.</li></ul></div>
-          <div class="prose task" data-text="1:Phasensprünge Aufgabe"><p><b>Ermittelt</b> für alle vier Möglichkeiten vom Eingang zu einem der beiden Detektoren die Phasensprünge an jedem Bauteil und deren Summe. Nutzt dazu die Skizze der Simulation. Wählt in jedem Feld einen Wert aus und prüft dann die Tabelle.</p></div>
+          <div class="prose task" data-text="1:Phasensprünge Aufgabe"><p><b>Ermittelt</b> für alle vier denkbaren Möglichkeiten von der Quelle zu einem der beiden Detektoren die Phasensprünge an jedem Bauteil und deren Summe. Nutzt dazu die Skizze der Simulation. Wählt in jedem Feld einen Wert aus und prüft dann die Tabelle.</p></div>
           <div class="phtab" data-phtab></div>
           <i data-sumfn="phtab" hidden></i>
         </div>
@@ -454,16 +454,16 @@ label.btn{display:inline-block}
 
 <section class="page" id="k1-phase" data-ch="1" data-name="Spiegel verschieben">
   <div class="lab"><div class="benchslot"></div>
-    <div class="col"><div class="lead prose" data-text="1:Spiegel Einleitung"><p>Am Thorlabs-Aufbau wandern die Ringe, wenn man einen Spiegel ein klein wenig verschiebt. Dabei ändert sich die <b>Phasendifferenz Δφ</b> zwischen den beiden Möglichkeiten (Reflexion und Transmission am ersten Strahlteiler). Bisher war Δφ = 0°. Jetzt untersucht ihr, was eine andere Phasendifferenz für einzelne Photonen bedeutet.</p></div>
+    <div class="col"><div class="lead prose" data-text="1:Spiegel Einleitung"><p>Am realen Aufbau wandern die Ringe, wenn man einen Spiegel ein klein wenig verschiebt. Dies geschieht schon, wenn man mit dem Finger vorsichtig auf das Breadboard drückt. Dabei ändert sich die <b>Phasendifferenz Δφ</b> zwischen den klassisch denkbaren Möglichkeiten . Bisher war in den Simulationen die Annahme Δφ = 0°. Jetzt untersucht ihr, was eine andere Phasendifferenz für Experimente mit einzelnen Photonen bedeutet.</p></div>
       <div class="steps">
         <div class="step" data-lock data-btn="Hypothese festhalten">
           <div class="lbl">A · Hypothese</div>
-          <div class="prose task" data-text="1:Spiegel Hypothese"><p>Wie ändert sich die Verteilung der Klicks, wenn ihr Δφ von 0° bis 360° erhöht? Beschreibt eure Erwartung und begründet sie mit dem, was ihr am Thorlabs-Aufbau seht.</p></div>
+          <div class="prose task" data-text="1:Spiegel Hypothese"><p>Wie ändert sich die Verteilung der Klicks, wenn ihr Δφ von 0° bis 360° erhöht? Beschreibt eure Erwartung und begründet sie mit dem, was ihr am realen Aufbau seht.</p></div>
           <textarea data-save="ph-hyp" data-req data-q="Hypothese" placeholder="Wir erwarten …, weil …"></textarea>
         </div>
         <div class="step" data-flag="ph-meas">
           <div class="lbl">B · Überprüfen</div>
-          <div class="prose task" data-text="1:Spiegel Überprüfen"><p>Stellt mit dem Regler an der Simulation mindestens 5 verschiedene Werte für Δφ ein und messt bei jedem Wert 1000 Photonen. Die Messungen erscheinen in der Tabelle und im Diagramm.</p></div>
+          <div class="prose task" data-text="1:Spiegel Überprüfen"><p>Stellt mit dem Regler an der Simulation mindestens 5 verschiedene Werte für Δφ ein und nehmt bei jedem Wert 1000 Messungen vor. Die Messungen erscheinen in der Tabelle und im Diagramm.</p></div>
           <div class="row"><button class="btn action" id="phMeasure">1000 Photonen messen</button></div>
           <p class="status" id="phStatus"></p>
           <div class="viewbar"><div class="lbl" style="margin:0">Messungen</div>
@@ -492,35 +492,35 @@ label.btn{display:inline-block}
 <!-- ===================== Kapitel 2 ===================== -->
 <section class="page" id="k2-frage" data-ch="2" data-name="Ausgangsfrage">
   <div class="narrow">
-    <div class="lead prose" data-text="2:Einleitung"><p>In diesem Kapitel arbeitet ihr am <b>Thorlabs-Aufbau</b>, nicht mit der Simulation. Dort seht ihr Muster aus Laserlicht. Für einzelne Photonen übersetzt ihr so: Wo das Muster hell ist, klickt ein Detektor an dieser Stelle mit hoher Wahrscheinlichkeit. Wo es dunkel ist, klickt er nie.</p></div>
-    <div class="card prose" data-text="2:Ausgangsfrage"><p>In Aufbau 3 klickt nur Detektor 1. Daraus ergibt sich die Frage: <b>Gelangt das Photon über die Reflexion am ersten Strahlteiler zum Detektor, über die Transmission oder über beide Möglichkeiten?</b></p>
-<p>Prüfidee: Wir machen die beiden Möglichkeiten unterscheidbar. Dazu stellt ihr in jeden Arm des Interferometers einen Polfilter. Stehen die Polfilter gekreuzt (0° und 90°), unterscheiden sich die beiden Möglichkeiten in der Polarisation.</p></div>
+    <div class="lead prose" data-text="2:Einleitung"><p>In diesem Kapitel arbeitet ihr am <b>realen Aufbau</b>, nicht mit der Simulation. Dort seht ihr Muster aus Laserlicht. Für einzelne Photonen übersetzt ihr so: Wo das Muster hell ist, klickt ein Detektor an dieser Stelle mit hoher Wahrscheinlichkeit. Wo es dunkel ist, klickt er nie.</p></div>
+    <div class="card prose" data-text="2:Ausgangsfrage"><p>In Aufbau 3 klickt nur Detektor 1. Bisher war diese Frage immer untersagt: <b> Wie gelangt das Photon von der Quelle zum Detektor?</b> Dazu untersucht ihr zwei experimentelle Idee.</p>
+<p>Prüfidee I: Wir machen die beiden Möglichkeiten unterscheidbar. Dazu stellt ihr in jeden Arm des Interferometers einen Polarisationsfilter. Stehen die Polarisationsfilter gekreuzt (0° und 90°), unterscheiden sich die beiden Möglichkeiten in der Polarisation.</p></div>
     <div class="steps">
       <div class="step" data-lock data-btn="Hypothese festhalten">
         <div class="lbl">A · Hypothese</div>
-        <div class="prose task" data-text="2:Hypothese Polfilter"><p>Was erwartet ihr für das Muster, wenn beide Polfilter parallel stehen, und was bei gekreuzten Polfiltern? Begründet eure Erwartung.</p></div>
-        <textarea data-save="qr-hyp1" data-req data-q="Hypothese Polfilter" placeholder="Parallel erwarten wir …, gekreuzt …, weil …"></textarea>
+        <div class="prose task" data-text="2:Hypothese Polarisationsfilter"><p>Was erwartet ihr für das Muster, wenn beide Polarisationsfilter parallel stehen, und was bei gekreuzten Polarisationsfiltern? Begründet eure Erwartung.</p></div>
+        <textarea data-save="qr-hyp1" data-req data-q="Hypothese Polarisationsfilter" placeholder="Parallel erwarten wir …, gekreuzt …, weil …"></textarea>
       </div>
     </div>
   </div>
 </section>
 
-<section class="page" id="k2-pol" data-ch="2" data-name="Polfilter in den Armen">
+<section class="page" id="k2-pol" data-ch="2" data-name="Polarisationsfilter in den Armen">
   <div class="narrow"><div class="steps">
     <div class="step">
-      <div class="lbl">B · Überprüfen am Thorlabs-Aufbau</div>
-      <div class="prose task" data-text="2:Polfilter überprüfen"><ol><li>Stellt beide Polfilter parallel (beide 0°). Beschreibt das Muster und fotografiert es.</li><li>Stellt die Polfilter gekreuzt (0° und 90°). Beschreibt das Muster und fotografiert es.</li><li>Übersetzt für einzelne Photonen: Mit welcher Wahrscheinlichkeit klicken Detektor 1 und Detektor 2 jeweils in der Mitte des Musters?</li></ol></div>
-      <div class="photos"><div class="photo" data-photo="pol-par" data-q="Foto: Polfilter parallel"></div><div class="photo" data-photo="pol-kr" data-q="Foto: Polfilter gekreuzt"></div></div>
-      <label class="lbl">1. Polfilter parallel</label><textarea data-save="qr-par" data-req data-q="Beobachtung: Polfilter parallel"></textarea>
-      <label class="lbl">2. Polfilter gekreuzt</label><textarea data-save="qr-kr" data-req data-q="Beobachtung: Polfilter gekreuzt"></textarea>
+      <div class="lbl">B · Überprüfen am realen Aufbau</div>
+      <div class="prose task" data-text="2:Polarisationsfilter überprüfen"><ol><li>Stellt beide Polarisationsfilter parallel (beide 0°). Beschreibt das Muster und fotografiert es.</li><li>Stellt die Polarisationsfilter gekreuzt (0° und 90°). Beschreibt das Muster und fotografiert es.</li><li>Übersetzt für einzelne Photonen: Mit welcher Wahrscheinlichkeit klicken Detektor 1 und Detektor 2 jeweils in der Mitte des Musters?</li></ol></div>
+      <div class="photos"><div class="photo" data-photo="pol-par" data-q="Foto: Polarisationsfilter parallel"></div><div class="photo" data-photo="pol-kr" data-q="Foto: Polarisationsfilter gekreuzt"></div></div>
+      <label class="lbl">1. Polarisationsfilter parallel</label><textarea data-save="qr-par" data-req data-q="Beobachtung: Polarisationsfilter parallel"></textarea>
+      <label class="lbl">2. Polarisationsfilter gekreuzt</label><textarea data-save="qr-kr" data-req data-q="Beobachtung: Polarisationsfilter gekreuzt"></textarea>
       <label class="lbl">3. Übersetzung für einzelne Photonen</label><textarea data-save="qr-ueb" data-req data-q="Übersetzung für einzelne Photonen"></textarea>
     </div>
-    <div class="step" data-flag="quiz-qr1"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="qr1" data-text="2:Kontrolle Polfilter"><p>Was seht ihr bei gekreuzten Polfiltern?</p>
-<ul><li>Dasselbe Muster wie bei parallelen Polfiltern.</li><li>Kein Muster mehr: Der Fleck ist gleichmäßig hell. (richtig)</li><li>Gar kein Licht mehr.</li></ul>
+    <div class="step" data-flag="quiz-qr1"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="qr1" data-text="2:Kontrolle Polarisationsfilter"><p>Was seht ihr bei gekreuzten Polarisationsfiltern?</p>
+<ul><li>Dasselbe Muster wie bei parallelen Polarisationsfiltern.</li><li>Kein Muster mehr: Der Fleck ist gleichmäßig hell. (richtig)</li><li>Gar kein Licht mehr.</li></ul>
 <p>Bei falscher Antwort: Vergleicht eure beiden Fotos.</p></div></div>
 <div class="step">
       <div class="lbl">C · Abgleich</div>
-      <div class="prose task" data-text="2:Polfilter Abgleich"><p>Vergleicht eure Beobachtung mit eurer Hypothese. Mit welchem der drei Aufbauten aus Kapitel 1 stimmt das Ergebnis bei gekreuzten Polfiltern überein?</p></div>
+      <div class="prose task" data-text="2:Polarisationsfilter Abgleich"><p>Vergleicht eure Beobachtung mit eurer Hypothese. Mit welchem der drei Aufbauten aus Kapitel 1 stimmt das Ergebnis bei gekreuzten Polarisationsfiltern überein?</p></div>
       <textarea data-save="qr-abgl1" data-req data-q="Abgleich"></textarea>
     </div>
   </div></div>
@@ -530,12 +530,12 @@ label.btn{display:inline-block}
   <div class="narrow"><div class="steps">
     <div class="step" data-lock data-btn="Hypothese festhalten">
       <div class="lbl">A · Hypothese</div>
-      <div class="prose task" data-text="2:Radierer Hypothese"><p>Die Polfilter in den Armen bleiben gekreuzt. Jetzt setzt ihr einen dritten Polfilter (Analysator) in <b>einen</b> der beiden Ausgänge, zuerst so, dass er genauso steht wie einer der beiden Polfilter in den Armen (0° oder 90°). Am anderen Ausgang steht kein Analysator.</p>
+      <div class="prose task" data-text="2:Radierer Hypothese"><p>Die Polarisationsfilter in den Armen bleiben gekreuzt. Jetzt setzt ihr einen dritten Polarisationsfilter (Analysator) in <b>einen</b> der beiden Ausgänge, zuerst so, dass er genauso steht wie einer der beiden Polarisationsfilter in den Armen (0° oder 90°). Am anderen Ausgang steht kein Analysator.</p>
 <p>Was erwartet ihr hinter dem Analysator? Was erwartet ihr, wenn ihr den Analysator anschließend langsam dreht? Begründet.</p></div>
       <textarea data-save="qr-hyp2" data-req data-q="Hypothese Analysator" placeholder="Hinter dem Analysator erwarten wir …, am anderen Ausgang …"></textarea>
     </div>
     <div class="step">
-      <div class="lbl">B · Überprüfen am Thorlabs-Aufbau</div>
+      <div class="lbl">B · Überprüfen am realen Aufbau</div>
       <div class="prose task" data-text="2:Radierer überprüfen"><ol><li>Setzt den Analysator auf 0° oder 90° ein. Beschreibt das Muster dahinter.</li><li>Dreht den Analysator langsam, während er eingebaut bleibt. Beobachtet das Muster.</li><li>Bei welchem Winkel ist das Muster am besten zu sehen? Fotografiert es. Gibt es noch einen zweiten Winkel, bei dem es gut zu sehen ist? Fotografiert auch dieses Muster.</li><li>Achtet auf den Ausgang ohne Analysator: Ändert sich dort etwas, wenn ihr den Analysator einsetzt oder dreht?</li></ol></div>
       <div class="photos"><div class="photo" data-photo="rad-p45" data-q="Foto: Muster am besten sichtbar"></div><div class="photo" data-photo="rad-m45" data-q="Foto: zweiter Winkel"></div></div>
       <label class="lbl">Beobachtungen</label><textarea data-save="qr-rad" data-req data-q="Beobachtungen" placeholder="1. … 2. … 3. … 4. …"></textarea>
@@ -770,7 +770,7 @@ label.btn{display:inline-block}
 <section class="page" id="lehrkraft" data-ch="L" data-free data-name="Hintergrund für Lehrkräfte">
   <div class="narrow"><div class="card navy prose" data-text="5:Hintergrund"><p><b>Modell.</b> Idealisierte Einzelphotonenquelle (jede Aussendung genau ein Photon), ideale Detektoren ohne Dunkelklicks, 50 : 50-Strahlteiler. Aufbau 1 und 2 sowie Strahlteiler 2 draußen: Detektor 1 und 2 je mit Wahrscheinlichkeit ½. Strahlteiler 2 drin: P(Detektor 1) = cos²(Δφ/2), P(Detektor 2) = sin²(Δφ/2). Jeder Klick wird einzeln ausgewürfelt, die Schwankungen sind also echte Statistik. Bei 5000 Photonen beträgt die Standardabweichung des Anteils 0,7 Prozentpunkte.</p>
 <p><b>Keine Wege.</b> Die Simulation zeigt bewusst nur die Bauteile, keine Strahlengänge, keine Photonenbahnen und keine geteilten Photonen. Sichtbar sind Aussendung, Einstellung und Klicks, also Anfang und Ende des Experiments.</p>
-<p><b>Bezug zum Thorlabs-Aufbau.</b> Detektor 1 steht dort, wo am Laseraufbau die Mitte des einen Musters liegt. „Hell“ entspricht „dieser Detektor klickt immer“, „dunkel“ entspricht „er klickt nie“. Das Verschieben des Spiegels entspricht dem Wandern der Ringe.</p>
+<p><b>Bezug zum realen Aufbau.</b> Detektor 1 steht dort, wo am Laseraufbau die Mitte des einen Musters liegt. „Hell“ entspricht „dieser Detektor klickt immer“, „dunkel“ entspricht „er klickt nie“. Das Verschieben des Spiegels entspricht dem Wandern der Ringe.</p>
 <p><b>Messung im delayed-choice-Teil.</b> Eine Messung dauert 1 s mit 1000 Photonen. Für jedes Photon wählt der Zufallsgenerator mit Wahrscheinlichkeit ½. Die Zählraten sind deshalb Klicks pro Sekunde in etwa 500 Photonen je Einstellung: drin bei Δφ = 0° etwa 500/s an Detektor 1, draußen etwa 250/s an jedem Detektor.</p>
 <p><b>Delayed choice.</b> Nach Jacques, Wu, Grosshans, Treussart, Grangier, Aspect & Roch (Science 315, 2007). Dort ersetzt ein elektrooptischer Modulator mit Polarisationsstrahlteiler den mechanischen Strahlteiler, gesteuert von einem Quantenzufallsgenerator. Die Wahl ist raumartig vom Eintritt des Photons ins Interferometer getrennt (Interferometer 48 m). Ergebnis wie hier: drin Interferenz, draußen konstant ½.</p>
 <p><b>Kausalität.</b> Die Wahl wirkt nicht auf die Vergangenheit zurück. Das Ergebnis folgt aus dem gesamten Aufbau zum Zeitpunkt der Messung. Formulierungen wie „das Photon entscheidet sich nachträglich“ oder „die Information wird im Nachhinein gelöscht“ vermeiden.</p>
@@ -866,7 +866,7 @@ window.addEventListener('error', e => {
   const w = document.getElementById('jsWarn'); if (w) { w.hidden = false; w.querySelector('p').textContent = 'Programmfehler: ' + e.message + ' (Zeile ' + e.lineno + '). Bitte diese Meldung an die Lehrkraft geben.'; } });
 /* MZI mit einzelnen Photonen – Lernumgebung foeXlab
    Kapitel 1: drei Aufbauten und Spiegel verschieben (Simulation).
-   Kapitel 2: Quantenradierer am Thorlabs-Aufbau (nur Aufgaben, Fotos, Texte).
+   Kapitel 2: Quantenradierer am realen Aufbau (nur Aufgaben, Fotos, Texte).
    Alle Antwortfelder lassen sich tippen oder mit dem Stift beschreiben; Fotos lassen sich bemalen.
    Kapitel 3: delayed choice nach Jacques et al. (2007) in fünf Messschritten.
    Sicherung: alle Antworten und Diagramme als PDF.
