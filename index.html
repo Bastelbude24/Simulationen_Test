@@ -339,6 +339,11 @@ label.btn{display:inline-block}
   .sumsec,.sumitem{break-inside:avoid}
 }
 
+/* Vorführmodus */
+#demoTag{position:fixed;left:12px;bottom:12px;z-index:50;background:var(--fx-orange);color:#fff;font-weight:700;font-size:14px;padding:6px 8px 6px 12px;display:flex;gap:10px;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+#demoTag[hidden]{display:none}
+#demoTag button{all:unset;cursor:pointer;background:#fff;color:var(--qf-navy);padding:3px 10px;font-size:13px}
+
 </style>
 </head>
 <body>
@@ -734,11 +739,15 @@ label.btn{display:inline-block}
 <p><b>Nichtlokalität im Sinne des KC.</b> Für die Vorhersage müssen alle Teilzustände des gesamten, räumlich ausgedehnten Aufbaus berücksichtigt werden. Gemeint ist keine Bell-Nichtlokalität verschränkter Teilchen.</p>
 <p><b>Sprachregelung.</b> „Möglichkeiten“ (Reflexion, Transmission) meint die Teilzustände der Superposition, nicht Wege des Photons. Der Begriff „Welcher-Weg-Information“ wird nicht verwendet.</p>
 <p><b>Bedienung.</b> Die Seiten werden nacheinander freigeschaltet. Mit `#lehrkraft` am Ende der Adresse (z. B. `…Simulation.html#lehrkraft`) sind alle Seiten und Aufgaben sofort frei. Alle Eingaben und Messungen bleiben im Browser des Geräts gespeichert, bis sie auf der Seite „Sicherung“ gelöscht werden.</p></div>
+    <div class="card" style="margin-top:24px"><div class="lbl">Vorführmodus</div>
+      <p>Zum Vorstellen der Lernumgebung: Alle Aufgaben sind sichtbar und „Weiter“ ist immer frei, ohne dass Antworten eingetragen werden müssen. Der Modus gilt nur in diesem Browser-Tab, bis ihr ihn beendet oder den Tab schließt.</p>
+      <div class="row"><button class="btn primary" data-demo="1">Vorführmodus einschalten</button><button class="btn" data-demo="0">Vorführmodus beenden</button></div></div>
     <div class="card" style="margin-top:24px"><div class="lbl">Arbeitsstand auf diesem Gerät</div>
       <div class="row"><button class="btn primary" data-export>Zwischenstand als Datei sichern</button><label class="btn">Zwischenstand laden<input type="file" accept=".json,application/json" data-import hidden></label><button class="btn" data-reset>Neu beginnen (alles löschen)</button></div>
       <p class="status" data-o="xstatus"></p></div></div>
 </section>
 </main>
+<div id="demoTag" hidden>Vorführmodus <button data-demo="0">beenden</button></div>
 
 <!-- Der Versuchsaufbau: wird auf jeder Seite mit Simulation an die Stelle .benchslot verschoben -->
 <div id="benchHome" hidden>
@@ -838,7 +847,14 @@ const RUN_STEP = 10, RUN_MS = 300;  // Schritt 5: Schrittweite in Grad, Dauer pr
 const MIN_TEXT = 8;                 // Mindestlänge einer Antwort (Zeichen)
 const MIN_INK = 30;                 // Mindestzahl an Stiftpunkten, damit eine handschriftliche Antwort zählt
 const KEY = 'foexlab-mzi-v3';       // Speicherplatz im Browser
-const TEACH = /lehrkraft/i.test(location.hash);
+// Vorführmodus für Lehrkräfte: alle Aufgaben sichtbar, „Weiter“ immer frei. Einschalten über „Für Lehrkräfte“ oder #lehrkraft in der Adresse.
+// Gilt nur in diesem Tab (sessionStorage); Schülerinnen und Schüler starten also nie versehentlich darin.
+const DEMO_KEY = 'foexlab-mzi-demo';
+const ssGet = k => { try { return sessionStorage.getItem(k); } catch (e) { return null; } };
+const ssSet = (k, v) => { try { v == null ? sessionStorage.removeItem(k) : sessionStorage.setItem(k, v); } catch (e) {} };
+const TEACH = /lehrkraft/i.test(location.hash) || ssGet(DEMO_KEY) === '1';
+function setDemo(on) { ssSet(DEMO_KEY, on ? '1' : null); const base = location.href.split('#')[0];
+  if (!on && location.hash) location.replace(base); else { if (on) history.replaceState(null, '', base + '#lehrkraft'); location.reload(); } }
 
 /* ===================== Hilfsfunktionen ===================== */
 const $ = id => document.getElementById(id);
@@ -1731,6 +1747,8 @@ $('pdfDown').onclick = () => {
 
 // Programm läuft: Warnhinweis ausblenden
 $('jsWarn').hidden = true;
+document.querySelectorAll('[data-demo]').forEach(b => { if ((b.dataset.demo === '1') === TEACH) b.hidden = true; b.onclick = () => setDemo(b.dataset.demo === '1'); });
+$('demoTag').hidden = !TEACH;
 // Beim Öffnen: gespeicherten Stand fortsetzen oder neu beginnen
 const hasWork = () => S.max > 1 || Object.values(S.texts).some(v => v) || Object.keys(MEDIA).some(k => k.startsWith('ink:') || k.startsWith('photo:'));
 mediaLoad().then(() => {
