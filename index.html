@@ -344,6 +344,24 @@ label.btn{display:inline-block}
 #demoTag[hidden]{display:none}
 #demoTag button{all:unset;cursor:pointer;background:#fff;color:var(--qf-navy);padding:3px 10px;font-size:13px}
 
+/* Tabelle der Phasensprünge */
+.phtab{margin-top:12px}
+.phtab table.pt th small{display:block;font-weight:400;color:var(--muted);font-size:13px}
+.phtab table.pt td{text-align:center}
+.phtab select{font:inherit;font-size:17px;font-weight:700;color:var(--qf-navy);padding:6px 8px;border:2px solid var(--qf-navy);background:#fff;min-width:78px}
+.phtab select:disabled{background:var(--qf-navy-tint);border-color:var(--grey-200);opacity:1}
+.phtab tr.bad th{color:#B3261E}
+.phtab tr.bad select{border-color:#B3261E}
+.phtab .ok{display:none}
+.step.done .phtab .ok{display:inline}
+.phtab .row{margin-top:12px}
+.phtab table.pt{width:100%;table-layout:fixed}
+.phtab table.pt th,.phtab table.pt td{padding:6px 4px;white-space:normal}
+.phtab table.pt thead th{font-size:13px;line-height:1.2;text-align:center}
+.phtab table.pt tbody th{width:30%;font-size:14px}
+.phtab table.pt thead th:first-child{width:30%}
+.phtab select{min-width:0;width:100%;font-size:15px;padding:5px 2px}
+
 </style>
 </head>
 <body>
@@ -408,11 +426,27 @@ label.btn{display:inline-block}
   <div class="lab"><div class="benchslot"></div>
     <div class="col"><div class="lead prose" data-text="1:Aufbau 3"><p>Der Aufbau wird um einen weiteren Strahlteiler ergänzt.</p></div>
       <div class="steps" data-aufbau="3">
-        <div class="step">
+        <div class="step" data-lock>
           <div class="lbl">D · Abgleich mit dem realen Experiment</div>
-          <div class="prose task" data-text="1:Abgleich der Simulation mit dem realen Experiment"><ol><li>Schaut in die Mitte der Musters an eurem realen Aufbau. Ordnet die beiden Schirme den Detektoren 1 und 2 zu.</li><li>Erläutert die Entstehung von zwei gegensätzlichen Mustern in dem Aufbau.</li></ol></div>
+          <div class="prose task" data-text="1:Abgleich der Simulation mit dem realen Experiment"><p>Schaut in die Mitte der Musters an eurem realen Aufbau. Ordnet die beiden Schirme den Detektoren 1 und 2 zu.</p></div>
           <div class="photo" data-photo="a3-skizze" data-q="Skizze: Muster am Thorlabs-Aufbau und Detektor 1"></div>
-          <textarea data-save="a3-leit" data-req data-q="Abgleich mit dem realen Experiment" placeholder="1. … 2. …"></textarea>
+          <textarea data-save="a3-leit" data-req data-q="Zuordnung der Schirme zu den Detektoren"></textarea>
+        </div>
+        <div class="step" data-flag="phase-tab">
+          <div class="lbl">E · Phasensprünge</div>
+          <div class="card prose" data-text="1:Phasensprünge Info"><p>Bei der Reflexion an einem Bauteil kann ein Phasensprung auftreten. Für die Bauteile im Interferometer gilt:</p>
+<ul><li><b>Strahlteiler:</b> Bei der Reflexion entsteht ein Phasensprung von π/2, bei der Transmission ändert sich die Phase nicht.</li><li><b>Spiegel:</b> Bei der Reflexion entsteht ein Phasensprung von π.</li></ul></div>
+          <div class="prose task" data-text="1:Phasensprünge Aufgabe"><p><b>Ermittelt</b> für alle vier Möglichkeiten vom Eingang zu einem der beiden Detektoren die Phasensprünge an jedem Bauteil und deren Summe. Nutzt dazu die Skizze der Simulation. Wählt in jedem Feld einen Wert aus und prüft dann die Tabelle.</p></div>
+          <div class="phtab" data-phtab></div>
+          <i data-sumfn="phtab" hidden></i>
+        </div>
+        <div class="step" data-flag="quiz-a3int"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="a3int" data-text="1:Kontrolle Interferenz"><p>Ermittelt, welche Art von Interferenz an den Detektoren auftritt, wenn beide Arme gleich lang sind.</p>
+<ul><li>Konstruktive Interferenz an beiden Detektoren.</li><li>Konstruktive Interferenz an Detektor 1, destruktive an Detektor 2. (richtig)</li><li>Destruktive Interferenz an Detektor 1, konstruktive an Detektor 2.</li><li>Destruktive Interferenz an beiden Detektoren.</li></ul>
+<p>Bei falscher Antwort: Vergleicht für jeden Detektor die Summen der beiden Möglichkeiten.</p></div></div>
+        <div class="step">
+          <div class="lbl">F · Gegensätzliche Muster</div>
+          <div class="prose task" data-text="1:Gegensätzliche Muster"><p>Erläutert die Entstehung von zwei gegensätzlichen Mustern in dem Aufbau.</p></div>
+          <textarea data-save="a3-muster" data-req data-q="Entstehung der gegensätzlichen Muster"></textarea>
         </div>
       </div></div></div>
 </section>
@@ -445,6 +479,11 @@ label.btn{display:inline-block}
           <div class="lbl">C · Abgleich</div>
           <div class="prose task" data-text="1:Spiegel Abgleich"><p>Beschreibt, wie der Anteil der Klicks an Detektor 1 und an Detektor 2 von Δφ abhängt. Vergleicht mit eurer Hypothese.</p></div>
           <textarea data-save="ph-abgl" data-req data-q="Abgleich" placeholder="Der Anteil an Detektor 1 …"></textarea>
+        </div>
+        <div class="step">
+          <div class="lbl">D · Realer Aufbau</div>
+          <div class="prose task" data-text="1:Spiegel realer Aufbau"><p><b>Erklärt</b>, warum die Lage von konstruktiver und destruktiver Interferenz am realen Aufbau von der Theorie abweicht.</p></div>
+          <textarea data-save="ph-real" data-req data-q="Abweichung des realen Aufbaus"></textarea>
         </div>
       </div></div></div>
 </section>
@@ -914,7 +953,7 @@ function drawSetup(mode, st = {}) {
       `<text x="318" y="356" class="svg-label">Reflexion</text>`;
   } else {
     parts = mirrorSVG(600, 110) + mirrorSVG(300, 320, -1) +
-      `<text x="630" y="96" class="svg-name">Spiegel</text><text x="200" y="352" class="svg-name">Spiegel</text>`;
+      `<text x="630" y="96" class="svg-name">Spiegel 1</text><text x="200" y="352" class="svg-name">Spiegel 2</text>`;
     if (st.phaseOn) parts += `<text x="630" y="116" class="svg-label">verschiebbar (Δφ = ${st.phi}°)</text>`;
     if (mode === 'a2') parts += `<text x="574" y="298" text-anchor="end" class="svg-label">hier kein Strahlteiler</text>`;
     if (mode === 'a3') parts += bsSVG(600, 320) + `<text x="574" y="298" text-anchor="end" class="svg-name">Strahlteiler 2</text>`;
@@ -1103,6 +1142,33 @@ document.querySelectorAll('.pred input').forEach(inp => {
   const w = document.createElement('div'); w.className = 'stepper'; inp.before(w);
   w.innerHTML = '<button type="button" data-d="-5" aria-label="5 % weniger">−</button>'; w.append(inp); w.insertAdjacentHTML('beforeend', '<button type="button" data-d="5" aria-label="5 % mehr">+</button>');
   w.querySelectorAll('button').forEach(b => b.onclick = () => { if (inp.disabled) return; const v = Math.max(0, Math.min(100, (+inp.value || 0) + +b.dataset.d)); inp.value = v; inp.dispatchEvent(new Event('input')); });
+});
+// Kapitel 1, Aufbau 3: Tabelle der Phasensprünge (Konvention NUN: Strahlteiler Reflexion π/2, Transmission 0; Spiegel π)
+const PT = {
+  cols: ['Strahlteiler 1', 'Spiegel', 'Strahlteiler 2', 'Summe'],
+  rows: [   // richtige Werte in Vielfachen von π/2
+    { name: 'Möglichkeit 1', via: 'über Spiegel 1', det: 'zu Detektor 1', v: [0, 2, 1, 3] },
+    { name: 'Möglichkeit 2', via: 'über Spiegel 1', det: 'zu Detektor 2', v: [0, 2, 0, 2] },
+    { name: 'Möglichkeit 3', via: 'über Spiegel 2', det: 'zu Detektor 1', v: [1, 2, 0, 3] },
+    { name: 'Möglichkeit 4', via: 'über Spiegel 2', det: 'zu Detektor 2', v: [1, 2, 1, 4] }],
+  opts: ['0', 'π/2', 'π', '3π/2', '2π', '5π/2'],
+  key: (i, j) => `pt-${i}-${j}`
+};
+document.querySelectorAll('[data-phtab]').forEach(host => {
+  host.innerHTML = `<div class="tablewrap"><table class="pt"><thead><tr><th></th>${PT.cols.map(c => `<th>${c}</th>`).join('')}</tr></thead><tbody>${PT.rows.map((r, i) =>
+    `<tr data-r="${i}"><th>${r.name}<small>${r.via}, ${r.det}</small></th>${PT.cols.map((c, j) => `<td><select data-pt="${PT.key(i, j)}"><option value="">–</option>${PT.opts.slice(0, j === 3 ? 6 : 3).map(o => `<option>${o}</option>`).join('')}</select></td>`).join('')}</tr>`).join('')}</tbody></table></div>
+    <div class="row"><button class="btn primary" data-ptcheck>Tabelle prüfen</button><span class="ok">✓ erledigt</span></div><p class="status" data-o="ptmsg"></p>`;
+  host.querySelectorAll('select').forEach(sel => { sel.value = S.texts[sel.dataset.pt] || ''; sel.onchange = () => { S.texts[sel.dataset.pt] = sel.value; save(); sel.closest('tr').classList.remove('bad'); }; });
+  const msg = host.querySelector('[data-o=ptmsg]');
+  const lock = () => host.querySelectorAll('select,[data-ptcheck]').forEach(x => x.disabled = true);
+  host.querySelector('[data-ptcheck]').onclick = () => {
+    const bad = [], empty = PT.rows.some((r, i) => PT.cols.some((c, j) => !S.texts[PT.key(i, j)]));
+    if (empty) { msg.textContent = 'Bitte zuerst alle Felder ausfüllen.'; return; }
+    PT.rows.forEach((r, i) => { const ok = r.v.every((v, j) => S.texts[PT.key(i, j)] === PT.opts[v]); host.querySelector(`tr[data-r="${i}"]`).classList.toggle('bad', !ok); if (!ok) bad.push(i + 1); });
+    if (bad.length) { msg.textContent = (bad.length === 1 ? 'Prüft noch einmal Möglichkeit ' + bad[0] : 'Prüft noch einmal die Möglichkeiten ' + bad.join(', ').replace(/, (\d)$/, ' und $1')) + '.'; return; }
+    msg.textContent = 'Richtig.'; S.flags['phase-tab'] = true; save(); lock(); render();
+  };
+  if (S.flags['phase-tab']) { msg.textContent = 'Richtig.'; lock(); }
 });
 // Tabelle/Diagramm umschalten
 document.addEventListener('click', e => {
@@ -1581,6 +1647,7 @@ DEF['k3-deut'] = { render() { const h = (S.texts['dc-hyp'] || '').trim(); $('hyp
 
 /* ===================== Sicherung: Zusammenfassung und PDF ===================== */
 const SUMFN = {
+  phtab: () => PT.rows.some((r, i) => PT.cols.some((c, j) => S.texts[PT.key(i, j)])) ? [{ q: 'Summe der Phasensprünge', a: PT.rows.map((r, i) => `${r.name} (${r.via}, ${r.det}): ` + PT.cols.map((c, j) => `${c} ${S.texts[PT.key(i, j)] || '–'}`).join(', ')).join('\n') }] : [],
   aufbau(el) {
     const a = el.dataset.a, D = S.a[a], N = D.n1 + D.n2, out = [];
     if (D.pred) out.push({ q: 'Hypothese', a: `Detektor 1: ${D.pred[0]} %, Detektor 2: ${D.pred[1]} %` });
