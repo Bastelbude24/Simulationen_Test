@@ -387,9 +387,8 @@ label.btn{display:inline-block}
 <main>
 <!-- ===================== Kapitel 1 ===================== -->
 <section class="page" id="k1-start" data-ch="1" data-name="Einstieg">
-  <div class="lead prose" data-text="1:Einstieg"><p>Aus der Koinzidenzmessung wisst ihr: Ein einzelnes Photon wird nie an zwei Detektoren zugleich nachgewiesen. Es lässt sich am Strahlteiler nicht teilen.</p>
-<p>In diesem Kapitel baut ihr den Aufbau der Koinzidenzmessung Schritt für Schritt zu einem Mach-Zehnder-Interferometer aus. Die Frage lautet: <b>Was passiert mit einem einzelnen Photon in einem Interferometer?</b></p></div>
-  <div class="card prose" data-text="1:So arbeitet ihr"><p>Eine Einzelphotonenquelle sendet immer genau ein Photon aus. Die Detektoren melden nur „Klick“ oder „kein Klick“. Die Simulation zeigt deshalb nur die Bauteile und die Klicks, so wie im echten Experiment.</p>
+  <div class="lead prose" data-text="1:Einstieg"><p>Aus dem vorherigen Unterricht kennt ihr schon Experimente mit einzelnen Photonen. Im folgenden werdet ihr euch mit drei verschiedenen experimentellen Aufbauten beschäftigen.</p></div>
+  <div class="card prose" data-text="1:So arbeitet ihr"><p>Eine Einzelphotonenquelle emittieren immer genau ein Photon. Und ein Photon misst das Photon als Klick. Die Simulation zeigt  die Bauteile und die Klicks, so wie im echten Experiment.</p>
 <p>Bei jedem Aufbau geht ihr in drei Schritten vor:</p>
 <ol><li><b>Hypothese:</b> Was erwartet ihr? Begründet eure Erwartung.</li><li><b>Überprüfen:</b> Messt mit der Simulation.</li><li><b>Abgleich:</b> Stimmen Hypothese und Ergebnis überein?</li></ol>
 <p>Die nächste Aufgabe erscheint erst, wenn die aktuelle erledigt ist. „Weiter“ wird frei, wenn alle Aufgaben einer Seite erledigt sind.</p></div>
@@ -397,24 +396,23 @@ label.btn{display:inline-block}
 
 <section class="page" id="k1-a1" data-ch="1" data-name="Aufbau 1: ein Strahlteiler">
   <div class="lab"><div class="benchslot"></div>
-    <div class="col"><div class="lead prose" data-text="1:Aufbau 1"><p>Wie bei der Koinzidenzmessung: ein Strahlteiler, zwei Detektoren.</p></div><div class="steps" data-aufbau="1"></div></div></div>
+    <div class="col"><div class="lead prose" data-text="1:Aufbau 1"><p>Auf dem Experimentiertisch stehen ein Strahlteiler, zwei Detektoren.</p></div><div class="steps" data-aufbau="1"></div></div></div>
 </section>
 
 <section class="page" id="k1-a2" data-ch="1" data-name="Aufbau 2: zwei Spiegel">
   <div class="lab"><div class="benchslot"></div>
-    <div class="col"><div class="lead prose" data-text="1:Aufbau 2"><p>Derselbe Strahlteiler. Zwei Spiegel lenken das Licht zu den Detektoren um.</p></div><div class="steps" data-aufbau="2"></div></div></div>
+    <div class="col"><div class="lead prose" data-text="1:Aufbau 2"><p>Der Aufbau wird um zwei Spiegel ergänzt.</p></div><div class="steps" data-aufbau="2"></div></div></div>
 </section>
 
 <section class="page" id="k1-a3" data-ch="1" data-name="Aufbau 3: zweiter Strahlteiler">
   <div class="lab"><div class="benchslot"></div>
-    <div class="col"><div class="lead prose" data-text="1:Aufbau 3"><p>Dort, wo in Aufbau 2 nichts stand, steht jetzt ein zweiter Strahlteiler. Das ist ein Mach-Zehnder-Interferometer.</p></div>
+    <div class="col"><div class="lead prose" data-text="1:Aufbau 3"><p>Der Aufbau wird um einen weiteren Strahlteiler ergänzt.</p></div>
       <div class="steps" data-aufbau="3">
         <div class="step">
-          <div class="lbl">D · Leitfragen</div>
-          <div class="prose task" data-text="1:Leitfragen nach Aufbau 3"><ol><li>Schaut in die Mitte des Musters an eurem Thorlabs-Aufbau. Wo ist es hell, wo dunkel? Wo würdet ihr Detektor 1 hinstellen?</li><li>Aus der Koinzidenzmessung wisst ihr: Ein Photon wird nie an zwei Detektoren zugleich nachgewiesen. Wie kann es dann sein, dass in Aufbau 3 nur Detektor 1 klickt?</li></ol>
-<p>Merkt euch die Verteilung 50 : 50 aus Aufbau 2. Sie taucht beim Quantenradierer wieder auf.</p></div>
+          <div class="lbl">D · Abgleich mit dem realen Experiment</div>
+          <div class="prose task" data-text="1:Abgleich der Simulation mit dem realen Experiment"><ol><li>Schaut in die Mitte der Musters an eurem realen Aufbau. Ordnet die beiden Schirme den Detektoren 1 und 2 zu.</li><li>Erläutert die Entstehung von zwei gegensätzlichen Mustern in dem Aufbau.</li></ol></div>
           <div class="photo" data-photo="a3-skizze" data-q="Skizze: Muster am Thorlabs-Aufbau und Detektor 1"></div>
-          <textarea data-save="a3-leit" data-req data-q="Leitfragen nach Aufbau 3" placeholder="1. … 2. …"></textarea>
+          <textarea data-save="a3-leit" data-req data-q="Abgleich mit dem realen Experiment" placeholder="1. … 2. …"></textarea>
         </div>
       </div></div></div>
 </section>
@@ -784,8 +782,8 @@ label.btn{display:inline-block}
   </div>
   <div class="step" data-flag="meas-{A}">
     <div class="lbl">B · Überprüfen</div>
-    <div class="prose task" data-text="1:Überprüfen"><p>Überprüft eure Hypothese mit der Simulation. Ihr könnt einzelne Photonen senden oder 100 bzw. 1000 auf einmal. Messt insgesamt mindestens 5000 Photonen.</p>
-<div class="note">Jeder Klick ist zufällig. Deshalb weicht das Ergebnis immer etwas von der Wahrscheinlichkeit ab. Bei 100 Photonen sind Abweichungen von 10 Prozentpunkten möglich, bei 5000 Photonen meist nur noch 1 bis 2 Prozentpunkte. Je mehr Photonen ihr messt, desto näher liegt der Anteil an der Wahrscheinlichkeit.</div></div>
+    <div class="prose task" data-text="1:Überprüfen"><p>Überprüft eure Hypothese mit der Simulation. Ihr könnt einzelne Photonen emittieren oder 100 bzw. 1000 auf einmal. Emittiert mindestens 5000 Photonen.</p>
+<div class="note">Jedes Messergebnis ist zufällig. Deshalb weicht das Ergebnis immer etwas von der theoretischen Wahrscheinlichkeit ab. Bei 100 Photonen sind Abweichungen von 10 Prozentpunkten möglich, bei 5000 Photonen meist nur noch 1 bis 2 Prozentpunkte. Je mehr Einzelmessung durchgeführt werden, desto näher liegt der Anteil an der Wahrscheinlichkeit.</div></div>
     <div class="row"><button class="btn action" data-shoot="1">1 Photon</button><button class="btn action" data-shoot="100">100 Photonen</button><button class="btn action" data-shoot="1000">1000 Photonen</button></div>
     <div class="counters two" style="margin-top:14px">
       <div class="cnt d1"><div class="k">Detektor 1</div><div class="n" data-o="n1">0</div><div class="sub2" data-o="r1">–</div></div>
@@ -800,7 +798,7 @@ label.btn{display:inline-block}
   <div class="step" data-flag="quiz-a{A}"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="a{A}" data-from="kq-a{A}"></div></div>
 <div class="step">
     <div class="lbl">C · Abgleich</div>
-    <div class="prose task" data-text="1:Abgleich"><p>Vergleicht eure Hypothese mit dem Ergebnis. Stimmt sie? Wenn nicht: Welche Annahme in eurer Begründung war falsch?</p></div>
+    <div class="prose task" data-text="1:Abgleich"><p>Vergleicht eure Hypothese mit dem Ergebnis. Falls die Messwerte der Hypothese widersprechen: Welche Annahme in eurer Begründung war falsch?</p></div>
     <p class="compare" data-o="cmp"></p>
     <textarea data-save="a{A}-abgl" data-req data-q="Abgleich" placeholder="Unsere Hypothese …"></textarea>
   </div>
