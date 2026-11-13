@@ -577,9 +577,9 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
 <section class="page" id="k3-motiv" data-ch="3" data-name="Die Idee">
   <div class="narrow">
     <div class="lead prose" data-text="3:Motivation"><p>Beim Quantenradierer blieb die Ausgangsfrage offen: Sobald wir die Möglichkeiten unterscheidbar machen, verschwindet die Interferenz. Das Experiment ist damit nicht geeignet, die Ausgangsfrage zu beantworten.</p>
-<p>Solange wir die Möglichkeiten nicht unterscheiden, können wir nicht sagen, ob das Photon am ersten Strahlteiler reflektiert oder transmittiert wurde. Der Ort des Photons ist für uns unbestimmt. Das kann zweierlei heißen: Es steht fest, und wir wissen es nur nicht. Oder es lässt sich grundsätzlich nicht angeben.</p>
-<p>Mit einem festen Aufbau lässt sich das nicht entscheiden. Man könnte immer einwenden: Das Photon „richtet sich“ am ersten Strahlteiler nach dem Aufbau. Ist Strahlteiler 2 eingebaut, steht nichts fest. Ist er ausgebaut, steht fest, ob es reflektiert oder transmittiert wurde. John Wheeler schlug 1978 ein Experiment vor, das diesen Einwand ausschließt.</p>
-<p>Experimentelle Idee II: Ein Zufallsgenerator entscheidet erst dann, ob der zweite Strahlteiler im Aufbau steht, wenn das Photon den ersten Strahlteiler schon durchlaufen hat. Wir vergleichen nach vielen Wiederholungen des Experiments die Messergebnisse für beide Varianten (Strahlteiler eingebaut oder nicht).</p></div>
+<p>Solange wir die Möglichkeiten nicht unterscheiden, können wir nicht sagen, ob das Photon am ersten Strahlteiler reflektiert oder transmittiert wurde. Der Ort des Photons ist für uns unbestimmt. Das kann zweierlei heißen: A Es steht fest, und wir wissen es nur nicht.  A Es lässt sich grundsätzlich nicht angeben.</p>
+<p>Mit einem festen Aufbau lässt sich das nicht entscheiden. Man könnte immer einwenden: Das Photon „richtet sich“ am ersten Strahlteiler nach dem Aufbau. Ist Strahlteiler 2 eingebaut, steht nichts fest. Ist er ausgebaut, steht fest, ob es reflektiert oder transmittiert wurde.  Um diesen Einwand zu vermeiden schlug John Wheeler ein <b>Delayed-Choice-Experiment</b> vor.</p>
+<p>Experimentelle Idee II: Ein Zufallsgenerator entscheidet erst dann, ob der zweite Strahlteiler im Aufbau steht oder nicht. Diese Entscheidung wird verspätet (delayed) getroffen, nämlich nachdem das Photon den ersten Strahlteiler passiert haben muss. Diese Zeit lässt sich aus der Lichtgeschwindigkeit und dem Abstand der Bauteile bestimmen . Nach vielen Wiederholungen des Experiments vergleichen wir die Messergebnisse für beide Varianten (Strahlteiler eingebaut oder nicht).</p></div>
     <div class="steps">
       <div class="step" data-lock data-btn="Hypothese festhalten">
         <div class="lbl">A · Hypothese</div>
@@ -598,8 +598,7 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
     <div class="col">
       <div class="prose" data-text="3:Aufbau des Experiments"><p>So haben Jacques und Kollegen das Experiment 2007 mit echten einzelnen Photonen durchgeführt:</p>
 <ul><li><b>Einzelphotonenquelle:</b> Sie sendet immer genau ein Photon aus, etwa 1000 Photonen pro Sekunde.</li><li><b>Strahlteiler 1 und zwei Spiegel:</b> wie in Aufbau 2 und 3.</li><li><b>Strahlteiler 2 ist schaltbar:</b> Er ist für jedes Photon entweder drin oder draußen. Im echten Experiment ist das ein elektrooptisches Bauteil, das in wenigen milliardstel Sekunden umschaltet.</li><li><b>Zufallsgenerator:</b> Er entscheidet für jedes Photon neu, ob Strahlteiler 2 drin oder draußen ist, jeweils mit der Wahrscheinlichkeit ½.</li><li><b>Detektoren und Zählelektronik:</b> Für jedes Photon wird gespeichert, was der Zufallsgenerator gewählt hat und welcher Detektor geklickt hat.</li></ul></div>
-      <div class="card prose" style="margin-top:16px"><div data-text="3:Zeitlicher Ablauf"><p>Die Zeitleiste unter dem Aufbau zeigt die Reihenfolge für ein Photon. Im Experiment war das Interferometer 48 m lang, das Photon braucht dafür etwa 160 milliardstel Sekunden. Der Zufallsgenerator entscheidet erst, <b>wenn das Photon den ersten Strahlteiler schon durchlaufen hat</b>. Mit „Ablauf ansehen“ könnt ihr euch die Reihenfolge für ein Photon zeigen lassen.</p></div>
-        <div class="row" style="margin-top:12px"><button class="btn action" id="demo">Ablauf ansehen</button></div></div>
+      <div class="card prose" style="margin-top:16px"><div data-text="3:Zeitlicher Ablauf"><p>Die Zeitleiste unter dem Aufbau zeigt die Reihenfolge für ein Photon. Im Experiment war das Interferometer 48 m lang, das Photon braucht dafür etwa 160 milliardstel Sekunden. Der Zufallsgenerator entscheidet erst, <b>wenn das Photon den ersten Strahlteiler schon durchlaufen hat</b>. Wir werden das Experiment nachfolgend Schritt für Schritt durchgehen.</p></div></div>
       <div class="steps">
         <div class="step" data-flag="quiz-q1"><div class="lbl">Kurze Kontrolle 1</div><div class="quiz" data-quiz="q1" data-text="3:Quiz Zeitpunkt"><p>Wann entscheidet der Zufallsgenerator, ob Strahlteiler 2 drin ist?</p>
 <ul><li>Bevor die Quelle das Photon aussendet.</li><li>Wenn das Photon den ersten Strahlteiler schon durchlaufen hat. (richtig)</li><li>Erst nachdem ein Detektor geklickt hat.</li></ul></div></div>
@@ -623,7 +622,7 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
       </div>
       <div class="step">
         <div class="lbl">Frage</div>
-        <div class="prose task" data-text="3:Schritt 1 Frage"><p><b>Vergleicht</b> die Klicks bei „drin“ und bei „draußen“. <b>Beurteilt</b>, ob 10 Einzelmessungen für eine sichere Aussage reichen.</p></div>
+        <div class="prose task" data-text="3:Schritt 1 Frage"><p><b>Vergleicht</b> die die Messergebnisse für die Fälle  „drin“ und bei „draußen“. <b>Beurteilt</b>, ob 10 Einzelmessungen für eine sichere Aussage reichen.</p></div>
         <textarea data-save="s1-frage" data-req data-q="Einzelmessungen: Beobachtung"></textarea>
       </div>
     </div></div></div>
@@ -645,7 +644,7 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
       </div>
       <div class="step">
         <div class="lbl">Frage</div>
-        <div class="prose task" data-text="3:Schritt 2 Frage"><p><b>Vergleicht</b> die Zeilen „drin“ und „draußen“. <b>Erklärt</b>, warum die Zahlen nicht bei jeder Messreihe gleich sind.</p></div>
+        <div class="prose task" data-text="3:Schritt 2 Frage"><p><b>Vergleicht</b> erneut die Messergebnisse für die Fälle „drin“ und „draußen“ und fasst diese zusammen.</p></div>
         <textarea data-save="s2-frage" data-req data-q="Messreihen bei Δφ = 0°: Beobachtung"></textarea>
       </div>
     </div></div></div>
@@ -669,7 +668,7 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
   <div class="steps">
     <div class="step" data-lock data-btn="Vorhersage festhalten">
       <div class="lbl">A · Vorhersage</div>
-      <div class="prose task" data-text="3:Schritt 4 Vorhersage"><p>Gleich ordnet ihr eure Messreihen zwei Diagrammen zu: „Strahlteiler 2 drin“ und „Strahlteiler 2 draußen“. <b>Stellt eine Hypothese auf</b>, wie die beiden Diagramme aussehen werden: <b>Beschreibt</b> für beide, wie die Zählraten an Detektor 1 und Detektor 2 von Δφ abhängen.</p></div>
+      <div class="prose task" data-text="3:Schritt 4 Vorhersage"><p>Gleich ordnet ihr eure Messreihen zwei Diagrammen zu: „Strahlteiler 2 drin“ und „Strahlteiler 2 draußen“. <b>Stellt eine Hypothese auf</b>, wie in den jeweiligen Diagrammen die Zählraten von Detektor 1 und 2 von der Phasendifferenz Δφ abhängen.</p></div>
       <textarea data-save="s4-vorh" data-req data-q="Vorhersage für die Diagramme" placeholder="Drin: … Draußen: …"></textarea>
     </div>
     <div class="step" data-flag="s4">
@@ -688,7 +687,7 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
     <i data-sumfn="s4" hidden></i>
     <div class="step">
       <div class="lbl">C · Frage</div>
-      <div class="prose task" data-text="3:Schritt 4 Frage"><p><b>Beschreibt</b> in ein bis zwei Sätzen, was ihr in den beiden Diagrammen seht. <b>Beurteilt</b>, ob eure Messreihen für eine sichere Aussage reichen.</p></div>
+      <div class="prose task" data-text="3:Schritt 4 Frage"><p><b>Beschreibt</b> in ein bis zwei Sätzen, was ihr in den beiden Diagrammen seht. <b>Beurteilt</b>, ob eure Messreihen bereits ausreichen, um Hypothese A und B bewerten zu können.</p></div>
       <textarea data-save="s4-frage" data-req data-q="Was die Diagramme zeigen"></textarea>
     </div>
   </div>
@@ -1542,9 +1541,8 @@ const lastCounts = () => { const m = S.dc.mw[S.dc.mw.length - 1]; return m ? { c
 const scrollEnd = id => { const tw = $(id).closest('.tablewrap'); tw.scrollTop = tw.scrollHeight; };
 
 // So funktioniert das Experiment
-DEF['k3-funk'] = { enter() { dcEnter({ tl: true, phi0: 0 }); }, render() { $('demo').disabled = BUSY; } };
+DEF['k3-funk'] = { enter() { dcEnter({ tl: true, phi0: 0 }); }, render() {} };
 // Gesamtablauf: Anzeige bleibt nach dem Durchlauf stehen und wird erst beim nächsten Durchlauf zurückgesetzt
-$('demo').onclick = async () => { busy(true); dcEnter({ tl: true, phi0: 0 }); await onePhoton(0); busy(false); };
 document.querySelectorAll('.quiz').forEach(q => {
   const k = q.dataset.quiz, items = [...q.querySelectorAll('li')];
   const opts = items.map(li => { const ok = /\(richtig\)\s*$/.test(li.textContent); return { ok, html: li.innerHTML.replace(/\s*\(richtig\)\s*$/, '') }; });
@@ -1684,7 +1682,7 @@ $('s5Run').onclick = async () => {
   S.flags.s5 = true; save(); busy(false);
 };
 DEF['k3-erg'] = { render() { $('ergIn').innerHTML = runChart('in', 'Kein Messdurchlauf vorhanden.'); $('ergOut').innerHTML = runChart('out', 'Kein Messdurchlauf vorhanden.'); } };
-DEF['k3-deut'] = { render() { const h = (S.texts['dc-hyp'] || '').trim(); $('hypQuote').textContent = h || '(Keine Hypothese eingetragen.)'; } };
+DEF['k3-deut'] = { render() { const h = (S.texts['dc-hyp'] || '').trim(), k = INKS['dc-hyp'], q = $('hypQuote'); q.textContent = h; if (k && k.points()) { const img = document.createElement('img'); img.src = k.image(); img.alt = 'Handschriftliche Vorhersage'; img.style.maxWidth = '100%'; q.appendChild(img); } if (!h && !(k && k.points())) q.textContent = '(Keine Vorhersage eingetragen.)'; } };
 
 /* ===================== Sicherung: Zusammenfassung und PDF ===================== */
 const SUMFN = {
