@@ -362,6 +362,10 @@ label.btn{display:inline-block}
 .phtab table.pt thead th:first-child{width:30%}
 .phtab select{min-width:0;width:100%;font-size:15px;padding:5px 2px}
 
+/* Skizze im Text (Kapitel 2) */
+figure.sketch{margin:16px 0 0;padding:12px}
+figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
+
 </style>
 </head>
 <body>
@@ -408,7 +412,7 @@ label.btn{display:inline-block}
   <div class="lead prose" data-text="1:Einstieg"><p>Aus dem vorherigen Unterricht kennt ihr schon Experimente mit einzelnen Photonen. Im folgenden werdet ihr euch mit drei verschiedenen experimentellen Aufbauten beschäftigen.</p></div>
   <div class="card prose" data-text="1:So arbeitet ihr"><p>Eine Einzelphotonenquelle emittieren immer genau ein Photon. Und ein Photon misst das Photon als Klick. Die Simulation zeigt  die Bauteile und die Klicks, so wie im echten Experiment.</p>
 <p>Bei jedem Aufbau geht ihr in drei Schritten vor:</p>
-<ol><li><b>Hypothese:</b> Was erwartet ihr? Begründet eure Erwartung.</li><li><b>Überprüfen:</b> Messt mit der Simulation.</li><li><b>Abgleich:</b> Stimmen Hypothese und Ergebnis überein?</li></ol>
+<ol><li><b>Hypothese:</b> <b>Stellt eine Hypothese auf</b> und <b>begründet</b> sie.</li><li><b>Überprüfen:</b> <b>Führt</b> das Experiment mit der Simulation <b>durch</b>.</li><li><b>Abgleich:</b> <b>Vergleicht</b> Hypothese und Ergebnis.</li></ol>
 <p>Die nächste Aufgabe erscheint erst, wenn die aktuelle erledigt ist. „Weiter“ wird frei, wenn alle Aufgaben einer Seite erledigt sind.</p></div>
 </section>
 
@@ -428,7 +432,7 @@ label.btn{display:inline-block}
       <div class="steps" data-aufbau="3">
         <div class="step" data-lock>
           <div class="lbl">D · Abgleich mit dem realen Experiment</div>
-          <div class="prose task" data-text="1:Abgleich der Simulation mit dem realen Experiment"><p>Schaut in die Mitte der Musters an eurem realen Aufbau. Ordnet die beiden Schirme den Detektoren 1 und 2 zu.</p></div>
+          <div class="prose task" data-text="1:Abgleich der Simulation mit dem realen Experiment"><p>Schaut in die Mitte der Musters an eurem realen Aufbau. <b>Ordnet</b> die beiden Schirme den Detektoren 1 und 2 <b>zu</b>.</p></div>
           <div class="photo" data-photo="a3-skizze" data-q="Skizze: Muster am realen Aufbau und Detektor 1"></div>
           <textarea data-save="a3-leit" data-req data-q="Zuordnung der Schirme zu den Detektoren"></textarea>
         </div>
@@ -440,13 +444,13 @@ label.btn{display:inline-block}
           <div class="phtab" data-phtab></div>
           <i data-sumfn="phtab" hidden></i>
         </div>
-        <div class="step" data-flag="quiz-a3int"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="a3int" data-text="1:Kontrolle Interferenz"><p>Ermittelt, welche Art von Interferenz an den Detektoren auftritt, wenn beide Arme gleich lang sind.</p>
+        <div class="step" data-flag="quiz-a3int"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="a3int" data-text="1:Kontrolle Interferenz"><p><b>Ermittelt</b>, welche Art von Interferenz an den Detektoren auftritt, wenn beide Arme gleich lang sind.</p>
 <ul><li>Konstruktive Interferenz an beiden Detektoren.</li><li>Konstruktive Interferenz an Detektor 1, destruktive an Detektor 2. (richtig)</li><li>Destruktive Interferenz an Detektor 1, konstruktive an Detektor 2.</li><li>Destruktive Interferenz an beiden Detektoren.</li></ul>
 <p>Bei falscher Antwort: Vergleicht für jeden Detektor die Summen der beiden Möglichkeiten.</p>
 <p>Bei richtiger Antwort: Richtig, 100 % Zählrate / Wahrscheinlichkeit wird als konstruktive Interferenz und 0 % Zählrate / Wahrscheinlichkeit als destruktive Interferenz bezeichnet.</p></div></div>
         <div class="step">
           <div class="lbl">F · Gegensätzliche Muster</div>
-          <div class="prose task" data-text="1:Gegensätzliche Muster"><p>Erläutert die Entstehung von zwei gegensätzlichen Mustern in dem Aufbau.</p></div>
+          <div class="prose task" data-text="1:Gegensätzliche Muster"><p><b>Erläutert</b> die Entstehung von zwei gegensätzlichen Mustern in dem Aufbau.</p></div>
           <textarea data-save="a3-muster" data-req data-q="Entstehung der gegensätzlichen Muster"></textarea>
         </div>
       </div></div></div>
@@ -458,12 +462,12 @@ label.btn{display:inline-block}
       <div class="steps">
         <div class="step" data-lock data-btn="Hypothese festhalten">
           <div class="lbl">A · Hypothese</div>
-          <div class="prose task" data-text="1:Spiegel Hypothese"><p>Wie ändert sich die Verteilung der Klicks, wenn ihr Δφ von 0° bis 360° erhöht? Beschreibt eure Erwartung und begründet sie mit dem, was ihr am realen Aufbau seht.</p></div>
+          <div class="prose task" data-text="1:Spiegel Hypothese"><p><b>Stellt eine Hypothese auf</b>, wie sich die Verteilung der Klicks ändert, wenn ihr Δφ von 0° bis 360° erhöht. <b>Begründet</b> sie mit dem, was ihr am realen Aufbau seht.</p></div>
           <textarea data-save="ph-hyp" data-req data-q="Hypothese" placeholder="Wir erwarten …, weil …"></textarea>
         </div>
         <div class="step" data-flag="ph-meas">
           <div class="lbl">B · Überprüfen</div>
-          <div class="prose task" data-text="1:Spiegel Überprüfen"><p>Stellt mit dem Regler an der Simulation mindestens 5 verschiedene Werte für Δφ ein und nehmt bei jedem Wert 1000 Messungen vor. Die Messungen erscheinen in der Tabelle und im Diagramm.</p></div>
+          <div class="prose task" data-text="1:Spiegel Überprüfen"><p><b>Führt</b> das Experiment mit der Simulation <b>durch</b>: Stellt mit dem Regler mindestens 5 verschiedene Werte für Δφ ein und nehmt bei jedem Wert 1000 Messungen vor. Die Messungen erscheinen in der Tabelle und im Diagramm.</p></div>
           <div class="row"><button class="btn action" id="phMeasure">1000 Photonen messen</button></div>
           <p class="status" id="phStatus"></p>
           <div class="viewbar"><div class="lbl" style="margin:0">Messungen</div>
@@ -478,7 +482,7 @@ label.btn{display:inline-block}
 <p>Bei falscher Antwort: Schaut euch eure Messungen als Diagramm an.</p></div></div>
 <div class="step">
           <div class="lbl">C · Abgleich</div>
-          <div class="prose task" data-text="1:Spiegel Abgleich"><p>Beschreibt, wie der Anteil der Klicks an Detektor 1 und an Detektor 2 von Δφ abhängt. Vergleicht mit eurer Hypothese.</p></div>
+          <div class="prose task" data-text="1:Spiegel Abgleich"><p><b>Beschreibt</b>, wie der Anteil der Klicks an Detektor 1 und an Detektor 2 von Δφ abhängt. <b>Vergleicht</b> mit eurer Hypothese.</p></div>
           <textarea data-save="ph-abgl" data-req data-q="Abgleich" placeholder="Der Anteil an Detektor 1 …"></textarea>
         </div>
         <div class="step">
@@ -492,13 +496,14 @@ label.btn{display:inline-block}
 <!-- ===================== Kapitel 2 ===================== -->
 <section class="page" id="k2-frage" data-ch="2" data-name="Ausgangsfrage">
   <div class="narrow">
-    <div class="lead prose" data-text="2:Einleitung"><p>In diesem Kapitel arbeitet ihr am <b>realen Aufbau</b>, nicht mit der Simulation. Dort seht ihr Muster aus Laserlicht. Für einzelne Photonen übersetzt ihr so: Wo das Muster hell ist, klickt ein Detektor an dieser Stelle mit hoher Wahrscheinlichkeit. Wo es dunkel ist, klickt er nie.</p></div>
+    <div class="lead prose" data-text="2:Einleitung"><p>In diesem Kapitel arbeitet ihr am <b>realen Aufbau</b>, nicht mit der Simulation. Dort seht ihr Muster aus Laserlicht. Um es mit den Einzelphotonen-Experimenten zu vergleichen betrachten wir nur die Mitten der Muster. Dann gilt: Wo das Muster hell ist, klickt ein Detektor an dieser Stelle mit hoher Wahrscheinlichkeit. Wo es dunkel ist, klickt er nie.</p></div>
     <div class="card prose" data-text="2:Ausgangsfrage"><p>In Aufbau 3 klickt nur Detektor 1. Bisher war diese Frage immer untersagt: <b> Wie gelangt das Photon von der Quelle zum Detektor?</b> Dazu untersucht ihr zwei experimentelle Idee.</p>
-<p>Prüfidee I: Wir machen die beiden Möglichkeiten unterscheidbar. Dazu stellt ihr in jeden Arm des Interferometers einen Polarisationsfilter. Stehen die Polarisationsfilter gekreuzt (0° und 90°), unterscheiden sich die beiden Möglichkeiten in der Polarisation.</p></div>
+<p>Prüfidee I: Wir machen die Möglichkeiten unterscheidbar. Dazu stellt ihr in jeden Arm des Interferometers einen Polarisationsfilter. Stehen die Polarisationsfilter gekreuzt (0° und 90°), unterscheiden sich die beiden Möglichkeiten in der Polarisation.</p></div>
+    <figure class="card sketch"><div class="svgwrap"><svg id="polSketch" viewBox="0 0 820 460" role="img" aria-label="Skizze: Interferometer mit Polarisationsfiltern in beiden Armen"></svg></div><figcaption>Skizze zu Prüfidee I: realer Aufbau mit je einem Polarisationsfilter in beiden Armen</figcaption></figure>
     <div class="steps">
       <div class="step" data-lock data-btn="Hypothese festhalten">
         <div class="lbl">A · Hypothese</div>
-        <div class="prose task" data-text="2:Hypothese Polarisationsfilter"><p>Was erwartet ihr für das Muster, wenn beide Polarisationsfilter parallel stehen, und was bei gekreuzten Polarisationsfiltern? Begründet eure Erwartung.</p></div>
+        <div class="prose task" data-text="2:Hypothese Polarisationsfilter"><p><b>Stellt eine Hypothese auf</b>, wie das Muster aussieht, wenn beide Polarisationsfilter parallel stehen und wenn sie gekreuzt stehen. <b>Begründet</b> eure Hypothese.</p></div>
         <textarea data-save="qr-hyp1" data-req data-q="Hypothese Polarisationsfilter" placeholder="Parallel erwarten wir …, gekreuzt …, weil …"></textarea>
       </div>
     </div>
@@ -509,7 +514,7 @@ label.btn{display:inline-block}
   <div class="narrow"><div class="steps">
     <div class="step">
       <div class="lbl">B · Überprüfen am realen Aufbau</div>
-      <div class="prose task" data-text="2:Polarisationsfilter überprüfen"><ol><li>Stellt beide Polarisationsfilter parallel (beide 0°). Beschreibt das Muster und fotografiert es.</li><li>Stellt die Polarisationsfilter gekreuzt (0° und 90°). Beschreibt das Muster und fotografiert es.</li><li>Übersetzt für einzelne Photonen: Mit welcher Wahrscheinlichkeit klicken Detektor 1 und Detektor 2 jeweils in der Mitte des Musters?</li></ol></div>
+      <div class="prose task" data-text="2:Polarisationsfilter überprüfen"><ol><li>Stellt beide Polarisationsfilter parallel (beide 0°). <b>Beschreibt</b> das Muster und <b>protokolliert</b> es mit einem Foto.</li><li>Stellt die Polarisationsfilter gekreuzt (0° und 90°). <b>Beschreibt</b> das Muster und <b>protokolliert</b> es mit einem Foto.</li><li><b>Gebt</b> für einzelne Photonen <b>an</b>, mit welcher Wahrscheinlichkeit Detektor 1 und Detektor 2 jeweils in der Mitte des Musters klicken.</li></ol></div>
       <div class="photos"><div class="photo" data-photo="pol-par" data-q="Foto: Polarisationsfilter parallel"></div><div class="photo" data-photo="pol-kr" data-q="Foto: Polarisationsfilter gekreuzt"></div></div>
       <label class="lbl">1. Polarisationsfilter parallel</label><textarea data-save="qr-par" data-req data-q="Beobachtung: Polarisationsfilter parallel"></textarea>
       <label class="lbl">2. Polarisationsfilter gekreuzt</label><textarea data-save="qr-kr" data-req data-q="Beobachtung: Polarisationsfilter gekreuzt"></textarea>
@@ -520,7 +525,7 @@ label.btn{display:inline-block}
 <p>Bei falscher Antwort: Vergleicht eure beiden Fotos.</p></div></div>
 <div class="step">
       <div class="lbl">C · Abgleich</div>
-      <div class="prose task" data-text="2:Polarisationsfilter Abgleich"><p>Vergleicht eure Beobachtung mit eurer Hypothese. Mit welchem der drei Aufbauten aus Kapitel 1 stimmt das Ergebnis bei gekreuzten Polarisationsfiltern überein?</p></div>
+      <div class="prose task" data-text="2:Polarisationsfilter Abgleich"><p><b>Vergleicht</b> eure Beobachtung mit eurer Hypothese. <b>Ordnet</b> das Ergebnis bei gekreuzten Polarisationsfiltern einem der drei Aufbauten aus Kapitel 1 <b>zu</b>.</p></div>
       <textarea data-save="qr-abgl1" data-req data-q="Abgleich"></textarea>
     </div>
   </div></div>
@@ -531,12 +536,12 @@ label.btn{display:inline-block}
     <div class="step" data-lock data-btn="Hypothese festhalten">
       <div class="lbl">A · Hypothese</div>
       <div class="prose task" data-text="2:Radierer Hypothese"><p>Die Polarisationsfilter in den Armen bleiben gekreuzt. Jetzt setzt ihr einen dritten Polarisationsfilter (Analysator) in <b>einen</b> der beiden Ausgänge, zuerst so, dass er genauso steht wie einer der beiden Polarisationsfilter in den Armen (0° oder 90°). Am anderen Ausgang steht kein Analysator.</p>
-<p>Was erwartet ihr hinter dem Analysator? Was erwartet ihr, wenn ihr den Analysator anschließend langsam dreht? Begründet.</p></div>
+<p><b>Stellt eine Hypothese auf</b>, was ihr hinter dem Analysator seht und was passiert, wenn ihr den Analysator anschließend langsam dreht. <b>Begründet</b> eure Hypothese.</p></div>
       <textarea data-save="qr-hyp2" data-req data-q="Hypothese Analysator" placeholder="Hinter dem Analysator erwarten wir …, am anderen Ausgang …"></textarea>
     </div>
     <div class="step">
       <div class="lbl">B · Überprüfen am realen Aufbau</div>
-      <div class="prose task" data-text="2:Radierer überprüfen"><ol><li>Setzt den Analysator auf 0° oder 90° ein. Beschreibt das Muster dahinter.</li><li>Dreht den Analysator langsam, während er eingebaut bleibt. Beobachtet das Muster.</li><li>Bei welchem Winkel ist das Muster am besten zu sehen? Fotografiert es. Gibt es noch einen zweiten Winkel, bei dem es gut zu sehen ist? Fotografiert auch dieses Muster.</li><li>Achtet auf den Ausgang ohne Analysator: Ändert sich dort etwas, wenn ihr den Analysator einsetzt oder dreht?</li></ol></div>
+      <div class="prose task" data-text="2:Radierer überprüfen"><ol><li>Setzt den Analysator auf 0° oder 90° ein. <b>Beschreibt</b> das Muster dahinter.</li><li>Dreht den Analysator langsam, während er eingebaut bleibt. <b>Untersucht</b>, wie sich das Muster verändert.</li><li><b>Ermittelt</b> den Winkel, bei dem das Muster am besten zu sehen ist, und <b>protokolliert</b> das Muster mit einem Foto. <b>Untersucht</b>, ob es einen zweiten Winkel gibt, bei dem es gut zu sehen ist, und <b>protokolliert</b> auch dieses Muster.</li><li><b>Untersucht</b>, ob sich am Ausgang ohne Analysator etwas ändert, wenn ihr den Analysator einsetzt oder dreht.</li></ol></div>
       <div class="photos"><div class="photo" data-photo="rad-p45" data-q="Foto: Muster am besten sichtbar"></div><div class="photo" data-photo="rad-m45" data-q="Foto: zweiter Winkel"></div></div>
       <label class="lbl">Beobachtungen</label><textarea data-save="qr-rad" data-req data-q="Beobachtungen" placeholder="1. … 2. … 3. … 4. …"></textarea>
     </div>
@@ -545,7 +550,7 @@ label.btn{display:inline-block}
 <p>Bei falscher Antwort: Dreht den Analysator noch einmal langsam und beobachtet genau.</p></div></div>
 <div class="step">
       <div class="lbl">C · Abgleich</div>
-      <div class="prose task" data-text="2:Radierer Abgleich"><ol><li>Vergleicht die beiden Muster aus Aufgabe 3. Was ergibt sich, wenn man beide übereinanderlegt?</li><li>Der Analysator lässt nur einen Teil des Lichts durch. Was bedeutet das für das Muster, das ihr hinter ihm seht?</li><li>Vergleicht mit eurer Hypothese.</li></ol></div>
+      <div class="prose task" data-text="2:Radierer Abgleich"><ol><li><b>Vergleicht</b> die beiden Muster aus Aufgabe 3. <b>Beschreibt</b>, was sich ergibt, wenn man beide übereinanderlegt.</li><li>Der Analysator lässt nur einen Teil des Lichts durch. <b>Erläutert</b>, was das für das Muster bedeutet, das ihr hinter ihm seht.</li><li><b>Vergleicht</b> mit eurer Hypothese.</li></ol></div>
       <textarea data-save="qr-abgl2" data-req data-q="Abgleich"></textarea>
     </div>
   </div></div>
@@ -555,7 +560,7 @@ label.btn{display:inline-block}
   <div class="narrow"><div class="steps">
     <div class="step">
       <div class="lbl">D · Sicherung</div>
-      <div class="prose task" data-text="2:Sicherung"><ol><li>Formuliert in einem Satz, wann Interferenz auftritt und wann nicht.</li><li>Kann dieser Versuch die Ausgangsfrage beantworten, über welche Möglichkeit das Photon zum Detektor gelangt? Begründet.</li></ol></div>
+      <div class="prose task" data-text="2:Sicherung"><ol><li><b>Fasst</b> in einem Satz <b>zusammen</b>, wann Interferenz auftritt und wann nicht.</li><li><b>Beurteilt</b>, ob dieser Versuch die Ausgangsfrage beantworten kann, über welche Möglichkeit das Photon zum Detektor gelangt.</li></ol></div>
       <textarea data-save="qr-sich" data-req data-q="Sicherung" placeholder="1. … 2. …"></textarea>
     </div>
     <div class="step">
@@ -576,7 +581,7 @@ label.btn{display:inline-block}
       <div class="step" data-lock data-btn="Hypothese festhalten">
         <div class="lbl">A · Hypothese</div>
         <div class="prose task" data-text="3:Hypothese"><p>Diese Hypothese prüft ihr: <b>„Am ersten Strahlteiler legt sich fest, wie das Photon weiterläuft, je nachdem, ob der zweite Strahlteiler im Aufbau steht oder nicht.“</b></p>
-<p>Was sagt die Hypothese voraus, wenn erst nach dem ersten Strahlteiler entschieden wird? Was müsstet ihr bei „Strahlteiler 2 drin“ messen, was bei „draußen“? Schreibt eure Vorhersage auf, bevor ihr weitermacht.</p></div>
+<p><b>Leitet</b> aus der Hypothese <b>ab</b>, was sie voraussagt, wenn erst nach dem ersten Strahlteiler entschieden wird: Was müsstet ihr bei „Strahlteiler 2 drin“ messen, was bei „draußen“? Schreibt eure Vorhersage auf, bevor ihr weitermacht.</p></div>
         <textarea data-save="dc-hyp" data-req data-q="Vorhersage der Hypothese" placeholder="Bei „drin“ müsste …, bei „draußen“ …"></textarea>
       </div>
     </div>
@@ -603,7 +608,7 @@ label.btn{display:inline-block}
   <div class="lab"><div class="benchslot"></div>
     <div class="col"><div class="steps">
       <div class="step" data-flag="s1">
-        <div class="prose task" data-text="3:Schritt 1"><p><b>Einzelmessungen.</b> Mit jedem Knopfdruck sendet die Quelle ein einzelnes Photon aus. Verfolgt in der Zeitleiste, was nacheinander passiert: Bei jedem Photon entscheidet der Zufallsgenerator neu, ob Strahlteiler 2 drin oder draußen ist. Messt 10 Photonen. Die Phasendifferenz ist Δφ = 0°.</p></div>
+        <div class="prose task" data-text="3:Schritt 1"><p><b>Einzelmessungen.</b> Mit jedem Knopfdruck sendet die Quelle ein einzelnes Photon aus. Verfolgt in der Zeitleiste, was nacheinander passiert: Bei jedem Photon entscheidet der Zufallsgenerator neu, ob Strahlteiler 2 drin oder draußen ist. <b>Führt</b> 10 Einzelmessungen <b>durch</b>. Die Phasendifferenz ist Δφ = 0°.</p></div>
         <div class="row"><button class="btn action" id="s1Shoot">Ein Photon senden</button></div>
         <p class="status" id="s1Status"></p>
         <div class="viewbar"><div class="lbl" style="margin:0">Einzelmessungen</div>
@@ -613,7 +618,7 @@ label.btn{display:inline-block}
       </div>
       <div class="step">
         <div class="lbl">Frage</div>
-        <div class="prose task" data-text="3:Schritt 1 Frage"><p>Was fällt euch auf, wenn ihr die Klicks bei „drin“ und bei „draußen“ vergleicht? Reichen 10 Photonen für eine sichere Aussage?</p></div>
+        <div class="prose task" data-text="3:Schritt 1 Frage"><p><b>Vergleicht</b> die Klicks bei „drin“ und bei „draußen“. <b>Beurteilt</b>, ob 10 Einzelmessungen für eine sichere Aussage reichen.</p></div>
         <textarea data-save="s1-frage" data-req data-q="Einzelmessungen: Beobachtung"></textarea>
       </div>
     </div></div></div>
@@ -623,7 +628,7 @@ label.btn{display:inline-block}
   <div class="lab"><div class="benchslot"></div>
     <div class="col"><div class="steps">
       <div class="step" data-flag="s2">
-        <div class="prose task" data-text="3:Schritt 2"><p><b>Messreihen.</b> Jetzt zählt die Zählelektronik eine Sekunde lang. In dieser Zeit sendet die Quelle 1000 Photonen aus. Eine Messreihe besteht also aus 1000 Einzelmessungen, und bei jeder entscheidet der Zufallsgenerator neu, genau wie in Schritt 1. Die Klicks werden nach der Einstellung des Zufallsgenerators getrennt gezählt. Nehmt mindestens 3 Messreihen bei Δφ = 0° auf.</p></div>
+        <div class="prose task" data-text="3:Schritt 2"><p><b>Messreihen.</b> Jetzt zählt die Zählelektronik eine Sekunde lang. In dieser Zeit sendet die Quelle 1000 Photonen aus. Eine Messreihe besteht also aus 1000 Einzelmessungen, und bei jeder entscheidet der Zufallsgenerator neu, genau wie in Schritt 1. Die Klicks werden nach der Einstellung des Zufallsgenerators getrennt gezählt. <b>Führt</b> mindestens 3 Messreihen bei Δφ = 0° <b>durch</b>.</p></div>
         <div class="row"><button class="btn action" id="s2Measure">Messreihe starten (1 s)</button></div>
         <p class="status" id="s2Status"></p>
         <details class="cols" open><summary>Was bedeuten die Spalten?</summary><div class="prose" data-text="3:Spalten der Tabelle"><ul><li><b>Messreihe:</b> Nummer der Messreihe. Eine Messreihe dauert 1 Sekunde und besteht aus 1000 Einzelmessungen.</li><li><b>Δφ:</b> eingestellte Phasendifferenz.</li><li><b>Strahlteiler 2:</b> was der Zufallsgenerator gewählt hat.</li><li><b>Messungen:</b> bei wie vielen der 1000 Einzelmessungen der Zufallsgenerator diese Einstellung gewählt hat.</li><li><b>Klicks D1, Klicks D2:</b> wie oft Detektor 1 bzw. Detektor 2 bei diesen Messungen geklickt hat.</li></ul>
@@ -635,7 +640,7 @@ label.btn{display:inline-block}
       </div>
       <div class="step">
         <div class="lbl">Frage</div>
-        <div class="prose task" data-text="3:Schritt 2 Frage"><p>Vergleicht die Zeilen „drin“ und „draußen“. Was fällt euch auf? Warum sind die Zahlen nicht bei jeder Messreihe gleich?</p></div>
+        <div class="prose task" data-text="3:Schritt 2 Frage"><p><b>Vergleicht</b> die Zeilen „drin“ und „draußen“. <b>Erklärt</b>, warum die Zahlen nicht bei jeder Messreihe gleich sind.</p></div>
         <textarea data-save="s2-frage" data-req data-q="Messreihen bei Δφ = 0°: Beobachtung"></textarea>
       </div>
     </div></div></div>
@@ -645,7 +650,7 @@ label.btn{display:inline-block}
   <div class="lab"><div class="benchslot"></div>
     <div class="col"><div class="steps">
       <div class="step" data-flag="s3">
-        <div class="prose task" data-text="3:Schritt 3"><p><b>Phase verändern.</b> Verschiebt den Spiegel mit dem Regler an der Simulation. Dabei ändert sich die Phasendifferenz Δφ. Nehmt bei mindestens 3 weiteren Phasendifferenzen jeweils mindestens 2 Messreihen auf. So habt ihr für jede Phasendifferenz mehrere Messreihen, aus denen ihr im nächsten Schritt einen Mittelwert bildet.</p></div>
+        <div class="prose task" data-text="3:Schritt 3"><p><b>Phase verändern.</b> Verschiebt den Spiegel mit dem Regler an der Simulation. Dabei ändert sich die Phasendifferenz Δφ. <b>Führt</b> bei mindestens 3 weiteren Phasendifferenzen jeweils mindestens 2 Messreihen <b>durch</b>. So habt ihr für jede Phasendifferenz mehrere Messreihen, aus denen ihr im nächsten Schritt einen Mittelwert bildet.</p></div>
         <div class="row"><button class="btn action" id="s3Measure">Messreihe starten (1 s)</button></div>
         <p class="status" id="s3Status"></p>
         <details class="cols"><summary>Was bedeuten die Spalten?</summary><div class="prose" data-text="3:Spalten der Tabelle"><ul><li><b>Messreihe:</b> Nummer der Messreihe. Eine Messreihe dauert 1 Sekunde und besteht aus 1000 Einzelmessungen.</li><li><b>Δφ:</b> eingestellte Phasendifferenz.</li><li><b>Strahlteiler 2:</b> was der Zufallsgenerator gewählt hat.</li><li><b>Messungen:</b> bei wie vielen der 1000 Einzelmessungen der Zufallsgenerator diese Einstellung gewählt hat.</li><li><b>Klicks D1, Klicks D2:</b> wie oft Detektor 1 bzw. Detektor 2 bei diesen Messungen geklickt hat.</li></ul>
@@ -659,12 +664,12 @@ label.btn{display:inline-block}
   <div class="steps">
     <div class="step" data-lock data-btn="Vorhersage festhalten">
       <div class="lbl">A · Vorhersage</div>
-      <div class="prose task" data-text="3:Schritt 4 Vorhersage"><p>Gleich ordnet ihr eure Messreihen zwei Diagrammen zu: „Strahlteiler 2 drin“ und „Strahlteiler 2 draußen“. Wie werden die beiden Diagramme aussehen? Beschreibt für beide, wie die Zählraten an Detektor 1 und Detektor 2 von Δφ abhängen.</p></div>
+      <div class="prose task" data-text="3:Schritt 4 Vorhersage"><p>Gleich ordnet ihr eure Messreihen zwei Diagrammen zu: „Strahlteiler 2 drin“ und „Strahlteiler 2 draußen“. <b>Stellt eine Hypothese auf</b>, wie die beiden Diagramme aussehen werden: <b>Beschreibt</b> für beide, wie die Zählraten an Detektor 1 und Detektor 2 von Δφ abhängen.</p></div>
       <textarea data-save="s4-vorh" data-req data-q="Vorhersage für die Diagramme" placeholder="Drin: … Draußen: …"></textarea>
     </div>
     <div class="step" data-flag="s4">
       <div class="lbl">B · Sortieren</div>
-      <div class="prose task" data-text="3:Schritt 4"><p><b>Sortieren und mitteln.</b> Ordnet jede Zeile der Tabelle einem der beiden Diagramme zu. Entscheidend ist, was der Zufallsgenerator gewählt hat.</p></div>
+      <div class="prose task" data-text="3:Schritt 4"><p><b>Sortieren und mitteln.</b> <b>Ordnet</b> jede Zeile der Tabelle einem der beiden Diagramme <b>zu</b>. Entscheidend ist, was der Zufallsgenerator gewählt hat.</p></div>
       <p class="status" id="s4Status"></p>
       <div class="tablewrap"><table class="mw sort"><thead><tr><th>Messreihe</th><th>Δφ</th><th>Zufallsgenerator wählte</th><th>Klicks D1</th><th>Klicks D2</th><th>In welches Diagramm?</th></tr></thead><tbody id="s4Log"></tbody></table></div>
       <div class="note prose" style="margin-top:16px" data-text="3:Mittelwert"><p>In die Diagramme wird für jede Phasendifferenz der <b>Mittelwert</b> eingetragen. Beispiel: Habt ihr bei einer Phasendifferenz zwei Messreihen mit 120 und 130 Klicks an einem Detektor, wird (120 + 130) : 2 = 125 Klicks pro Sekunde eingetragen. Blau ist Detektor 1, rot ist Detektor 2. Die Tabelle unter den Diagrammen zeigt, aus wie vielen Messreihen jeder Mittelwert gebildet ist.</p></div>
@@ -678,7 +683,7 @@ label.btn{display:inline-block}
     <i data-sumfn="s4" hidden></i>
     <div class="step">
       <div class="lbl">C · Frage</div>
-      <div class="prose task" data-text="3:Schritt 4 Frage"><p>Beschreibt in ein bis zwei Sätzen, was ihr in den beiden Diagrammen seht. Reichen eure Messreihen für eine sichere Aussage?</p></div>
+      <div class="prose task" data-text="3:Schritt 4 Frage"><p><b>Beschreibt</b> in ein bis zwei Sätzen, was ihr in den beiden Diagrammen seht. <b>Beurteilt</b>, ob eure Messreihen für eine sichere Aussage reichen.</p></div>
       <textarea data-save="s4-frage" data-req data-q="Was die Diagramme zeigen"></textarea>
     </div>
   </div>
@@ -710,7 +715,7 @@ label.btn{display:inline-block}
     <i data-sumfn="run" hidden></i>
     <div class="step">
       <div class="lbl">Ergebnis beschreiben</div>
-      <div class="prose task" data-text="3:Ergebnis"><p>Beschreibt das Ergebnis des Messdurchlaufs. Geht auf beide Diagramme ein:</p>
+      <div class="prose task" data-text="3:Ergebnis"><p><b>Beschreibt</b> das Ergebnis des Messdurchlaufs. Geht auf beide Diagramme ein:</p>
 <ul><li>Wie hängen die Zählraten an Detektor 1 und Detektor 2 von Δφ ab?</li><li>Bei welchen Phasendifferenzen klickt nur ein Detektor?</li><li>Wie groß sind die Zählraten, wenn Strahlteiler 2 draußen ist?</li></ul></div>
       <textarea data-save="erg" data-req data-q="Ergebnis"></textarea>
     </div>
@@ -725,9 +730,9 @@ label.btn{display:inline-block}
       <div class="step" data-flag="quiz-dc"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="dc" data-text="3:Kontrolle Ergebnis"><p>Was zeigen die beiden Diagramme des Messdurchlaufs?</p>
 <ul><li>Bei „drin“ und bei „draußen“ hängen die Zählraten von Δφ ab.</li><li>Nur bei „drin“ hängen die Zählraten von Δφ ab, bei „draußen“ nicht. (richtig)</li><li>Bei keiner der beiden Einstellungen hängen die Zählraten von Δφ ab.</li></ul>
 <p>Bei falscher Antwort: Schaut euch die beiden Diagramme noch einmal nebeneinander an.</p></div></div>
-<div class="step"><div class="lbl">1 · Abgleich</div><div class="prose task" data-text="3:Deutung 1"><p>Wird die Hypothese bestätigt? Vergleicht eure Vorhersage mit dem Ergebnis.</p></div><textarea data-save="deut1" data-req data-q="Abgleich mit der Hypothese"></textarea></div>
-      <div class="step"><div class="lbl">2 · Kausalität</div><div class="prose task" data-text="3:Deutung 2"><p>Der Zufallsgenerator hat erst entschieden, als das Photon den ersten Strahlteiler schon durchlaufen hatte. Trotzdem passen die Klicks immer zur Einstellung beim Nachweis. Was müsste nach der Hypothese passiert sein? Warum ist das ein Problem?</p></div><textarea data-save="deut2" data-req data-q="Was hätte passieren müssen?"></textarea></div>
-      <div class="step"><div class="lbl">3 · Ohne Wege</div><div class="prose task" data-text="3:Deutung 3"><p>Beschreibt das Ergebnis, ohne über Wege des Photons zu sprechen. Sagt nur, wie der Aufbau zum Zeitpunkt der Messung aussah und welche Klicks gemessen wurden.</p></div><textarea data-save="deut3" data-req data-q="Beschreibung ohne Wege"></textarea></div>
+<div class="step"><div class="lbl">1 · Abgleich</div><div class="prose task" data-text="3:Deutung 1"><p><b>Vergleicht</b> eure Vorhersage mit dem Ergebnis und <b>prüft</b>, ob die Hypothese bestätigt wird.</p></div><textarea data-save="deut1" data-req data-q="Abgleich mit der Hypothese"></textarea></div>
+      <div class="step"><div class="lbl">2 · Kausalität</div><div class="prose task" data-text="3:Deutung 2"><p>Der Zufallsgenerator hat erst entschieden, als das Photon den ersten Strahlteiler schon durchlaufen hatte. Trotzdem passen die Klicks immer zur Einstellung beim Nachweis. <b>Leitet</b> aus der Hypothese <b>ab</b>, was passiert sein müsste, und <b>erläutert</b>, warum das ein Problem ist.</p></div><textarea data-save="deut2" data-req data-q="Was hätte passieren müssen?"></textarea></div>
+      <div class="step"><div class="lbl">3 · Ohne Wege</div><div class="prose task" data-text="3:Deutung 3"><p><b>Beschreibt</b> das Ergebnis, ohne über Wege des Photons zu sprechen. Sagt nur, wie der Aufbau zum Zeitpunkt der Messung aussah und welche Klicks gemessen wurden.</p></div><textarea data-save="deut3" data-req data-q="Beschreibung ohne Wege"></textarea></div>
       <div class="step"><div class="callout prose"><h3>Deutung</h3><div data-text="3:Deutung der Physik"><p><b>Kausalität:</b> Nach der Hypothese müsste die späte Entscheidung festlegen, was das Photon vorher am ersten Strahlteiler „getan“ hat. Das wäre eine Wirkung in die Vergangenheit. Die Quantenphysik braucht diese Annahme nicht.</p>
 <p><b>Beschreibung ohne Wege:</b> Die Wahrscheinlichkeiten für die Klicks ergeben sich aus dem gesamten Aufbau zum Zeitpunkt der Messung. Ist Strahlteiler 2 drin, sind die beiden Möglichkeiten ununterscheidbar, und es gibt Interferenz. Ist er draußen, klickt jeder Detektor mit der Wahrscheinlichkeit ½.</p>
 <p><b>Nichtlokalität:</b> Für die Vorhersage muss man alle Teile des räumlich ausgedehnten Aufbaus gemeinsam betrachten. Man kann dem Photon zwischen Quelle und Detektor keinen bestimmten Weg zuschreiben.</p></div></div></div>
@@ -812,7 +817,7 @@ label.btn{display:inline-block}
   <i data-sumfn="aufbau" data-a="{A}" hidden></i>
   <div class="step" data-flag="pred-{A}" data-check="pred" data-lock data-btn="Hypothese festhalten">
     <div class="lbl">A · Hypothese</div>
-    <div class="prose task" data-text="1:Hypothese"><p>Mit welcher Wahrscheinlichkeit klickt jeder der beiden Detektoren? Tragt eure Werte ein und begründet sie in einem Satz.</p></div>
+    <div class="prose task" data-text="1:Hypothese"><p><b>Stellt eine Hypothese auf</b>, mit welcher Wahrscheinlichkeit jeder der beiden Detektoren klickt. Tragt eure Werte ein und <b>begründet</b> sie in einem Satz.</p></div>
     <div class="pred">
       <label>Detektor 1<input data-save="a{A}-p1" data-pair="a{A}-p2" type="number" min="0" max="100" step="5" inputmode="numeric" placeholder="%"></label>
       <label>Detektor 2<input data-save="a{A}-p2" data-pair="a{A}-p1" type="number" min="0" max="100" step="5" inputmode="numeric" placeholder="%"></label>
@@ -822,7 +827,7 @@ label.btn{display:inline-block}
   </div>
   <div class="step" data-flag="meas-{A}">
     <div class="lbl">B · Überprüfen</div>
-    <div class="prose task" data-text="1:Überprüfen"><p>Überprüft eure Hypothese mit der Simulation. Ihr könnt einzelne Photonen emittieren oder 100 bzw. 1000 auf einmal. Emittiert mindestens 5000 Photonen.</p>
+    <div class="prose task" data-text="1:Überprüfen"><p><b>Überprüft</b> eure Hypothese mit der Simulation. Ihr könnt einzelne Photonen emittieren oder 100 bzw. 1000 auf einmal. Emittiert mindestens 5000 Photonen.</p>
 <div class="note">Jedes Messergebnis ist zufällig. Deshalb weicht das Ergebnis immer etwas von der theoretischen Wahrscheinlichkeit ab. Bei 100 Photonen sind Abweichungen von 10 Prozentpunkten möglich, bei 5000 Photonen meist nur noch 1 bis 2 Prozentpunkte. Je mehr Einzelmessung durchgeführt werden, desto näher liegt der Anteil an der Wahrscheinlichkeit.</div></div>
     <div class="row"><button class="btn action" data-shoot="1">1 Photon</button><button class="btn action" data-shoot="100">100 Photonen</button><button class="btn action" data-shoot="1000">1000 Photonen</button></div>
     <div class="counters two" style="margin-top:14px">
@@ -838,7 +843,7 @@ label.btn{display:inline-block}
   <div class="step" data-flag="quiz-a{A}"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="a{A}" data-from="kq-a{A}"></div></div>
 <div class="step">
     <div class="lbl">C · Abgleich</div>
-    <div class="prose task" data-text="1:Abgleich"><p>Vergleicht eure Hypothese mit dem Ergebnis. Falls die Messwerte der Hypothese widersprechen: Welche Annahme in eurer Begründung war falsch?</p></div>
+    <div class="prose task" data-text="1:Abgleich"><p><b>Vergleicht</b> eure Hypothese mit dem Ergebnis. Falls die Messwerte der Hypothese widersprechen: <b>Gebt an</b>, welche Annahme in eurer Begründung falsch war.</p></div>
     <p class="compare" data-o="cmp"></p>
     <textarea data-save="a{A}-abgl" data-req data-q="Abgleich" placeholder="Unsere Hypothese …"></textarea>
   </div>
@@ -982,6 +987,32 @@ function drawSetup(mode, st = {}) {
     <text x="300" y="54" text-anchor="middle" class="svg-label">50 : 50</text>
     ${parts}${dets}`;
 }
+// Kapitel 2, Prüfidee I: Skizze des realen Aufbaus mit Polarisationsfiltern in beiden Armen
+function polFilterSVG(x, y, vertical, deg) {   // vertical: Filter quer zu einem waagerechten Strahl
+  const w = vertical ? 12 : 48, h = vertical ? 48 : 12;
+  return `<g><rect x="${x - w / 2}" y="${y - h / 2}" width="${w}" height="${h}" fill="var(--fx-orange-tint)" stroke="var(--fx-orange)" stroke-width="2"/>` +
+    (vertical ? `<text x="${x}" y="${y - 34}" text-anchor="middle" class="svg-name">Polarisationsfilter</text><text x="${x}" y="${y - 52}" text-anchor="middle" class="svg-label">${deg}</text>`
+              : `<text x="${x - 36}" y="${y + 5}" text-anchor="end" class="svg-name">Polarisationsfilter</text><text x="${x - 36}" y="${y + 24}" text-anchor="end" class="svg-label">${deg}</text>`) + '</g>';
+}
+function screenSVG(n, x, y) {
+  return `<g><rect x="${x}" y="${y}" width="130" height="64" class="dev"/><text x="${x + 14}" y="${y + 38}" class="svg-name">Schirm ${n}</text></g>`;
+}
+function drawPolSketch() {
+  const el = $('polSketch'); if (!el) return;
+  const beam = 'stroke="#2E9E4F" stroke-width="3" fill="none" opacity="0.8"';
+  el.innerHTML = `<defs><pattern id="holes2" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.6" fill="var(--hole)"/></pattern></defs>
+    <rect width="820" height="460" fill="var(--bench)"/><rect width="820" height="460" fill="url(#holes2)"/>
+    <path ${beam} d="M200 110 H600 V320 M300 110 V320 H600 M600 320 H670 M600 320 V380"/>
+    <rect x="30" y="80" width="170" height="60" fill="var(--qf-navy)"/><rect x="30" y="80" width="170" height="6" fill="var(--fx-orange)"/>
+    <text x="115" y="116" text-anchor="middle" class="svg-name" style="fill:#fff">Laser</text>
+    ${bsSVG(300, 110)}<text x="300" y="72" text-anchor="middle" class="svg-name">Strahlteiler 1</text>
+    ${mirrorSVG(600, 110)}${mirrorSVG(300, 320, -1)}
+    <text x="630" y="96" class="svg-name">Spiegel 1</text><text x="200" y="352" class="svg-name">Spiegel 2</text>
+    ${bsSVG(600, 320)}<text x="574" y="298" text-anchor="end" class="svg-name">Strahlteiler 2</text>
+    ${polFilterSVG(450, 110, true, '0°')}${polFilterSVG(300, 215, false, '90°')}
+    ${screenSVG(1, 670, 288)}${screenSVG(2, 535, 380)}`;
+}
+drawPolSketch();
 const KEYS = {
   a: '<span class="key"><span class="dot" style="background:var(--light)"></span>Quelle sendet ein Photon aus</span><span class="key"><span class="dot" style="background:var(--cAB)"></span>Klick an Detektor 1</span><span class="key"><span class="dot" style="background:var(--cAC)"></span>Klick an Detektor 2</span>',
   dc: '<span class="key"><span class="dot" style="background:var(--qf-navy)"></span>Strahlteiler 2 drin</span><span class="key"><span class="dot dashed"></span>Strahlteiler 2 draußen</span><span class="key"><span class="dot" style="background:var(--cAB)"></span>Detektor 1</span><span class="key"><span class="dot" style="background:var(--cAC)"></span>Detektor 2</span>'
