@@ -438,11 +438,17 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
         </div>
         <div class="step" data-flag="phase-tab">
           <div class="lbl">E · Phasensprünge</div>
-          <div class="card prose" data-text="1:Phasensprünge Info"><p>Bei der Reflexion an einem Bauteil kann ein Phasensprung auftreten. Für die Bauteile im Interferometer gilt:</p>
+          <div class="card prose" data-text="1:Phasensprünge Info"><p>Auf euren Schirmen des realen Experiments und auf den Detektoren der Simulation sind gegensätzliche Interferenzmuster zu beobachten. Diese werden durch eine Phasendifferenz durch Wechselwirkung mit den Bauteilen hervorgerufen.  Bei der Reflexion an einem Bauteil kann ein Phasensprung auftreten. Für die Bauteile im Interferometer gilt:</p>
 <ul><li><b>Strahlteiler:</b> Bei der Reflexion entsteht ein Phasensprung von π/2, bei der Transmission ändert sich die Phase nicht.</li><li><b>Spiegel:</b> Bei der Reflexion entsteht ein Phasensprung von π.</li></ul></div>
           <div class="prose task" data-text="1:Phasensprünge Aufgabe"><p>Ermittelt für alle vier denkbaren Möglichkeiten von der Quelle zu einem der beiden Detektoren die Phasensprünge an jedem Bauteil und deren Summe. Nutzt dazu die Skizze der Simulation. Wählt in jedem Feld einen Wert aus und prüft dann die Tabelle.</p></div>
           <div class="phtab" data-phtab></div>
           <i data-sumfn="phtab" hidden></i>
+        </div>
+        <div class="step" data-flag="phase-diff">
+          <div class="lbl">Phasendifferenz</div>
+          <div class="prose task" data-text="1:Phasendifferenz Aufgabe"><p>Ermittelt aus den Summen der Phasensprünge für jeden Detektor die Phasendifferenz Δφ zwischen den beiden klassisch denkbaren Möglichkeiten, die zu diesem Detektor führen.</p></div>
+          <div class="phtab" data-phdiff></div>
+          <i data-sumfn="phdiff" hidden></i>
         </div>
         <div class="step" data-flag="quiz-a3int"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="a3int" data-text="1:Kontrolle Interferenz"><p>Ermittelt, welche Art von Interferenz an den Detektoren auftritt, wenn beide Arme gleich lang sind.</p>
 <ul><li>Konstruktive Interferenz an beiden Detektoren.</li><li>Konstruktive Interferenz an Detektor 1, destruktive an Detektor 2. (richtig)</li><li>Destruktive Interferenz an Detektor 1, konstruktive an Detektor 2.</li><li>Destruktive Interferenz an beiden Detektoren.</li></ul>
@@ -489,6 +495,11 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
           <div class="lbl">D · Realer Aufbau</div>
           <div class="prose task" data-text="1:Spiegel realer Aufbau"><p>Erklärt, warum die Lage von konstruktiver und destruktiver Interferenz am realen Aufbau von der Theorie abweicht.</p></div>
           <textarea data-save="ph-real" data-req data-q="Abweichung des realen Aufbaus"></textarea>
+        </div>
+        <div class="step">
+          <div class="lbl">E · Widerspruch</div>
+          <div class="prose task" data-text="1:Widerspruch"><p>In Aufbau 1 klickt bei jedem Photon genau ein Detektor, nie beide zugleich. In Aufbau 3 beobachtet ihr Interferenz, zu der beide klassisch denkbaren Möglichkeiten beitragen. Erläutert, worin hier ein Widerspruch liegt.</p></div>
+          <textarea data-save="k1-widerspruch" data-req data-q="Widerspruch zwischen Aufbau 1 und Aufbau 3"></textarea>
         </div>
       </div></div></div>
 </section>
@@ -1216,6 +1227,24 @@ document.querySelectorAll('[data-phtab]').forEach(host => {
   };
   if (S.flags['phase-tab']) { msg.textContent = 'Richtig.'; lock(); }
 });
+// Phasendifferenz je Detektor aus den Summen der Phasensprünge
+const PD = { dets: ['Detektor 1', 'Detektor 2'], v: ['0', 'π'], opts: ['0', 'π/2', 'π', '3π/2', '2π'], key: i => `pd-${i}` };
+document.querySelectorAll('[data-phdiff]').forEach(host => {
+  host.innerHTML = `<div class="tablewrap"><table class="pt"><thead><tr><th></th><th>Phasendifferenz Δφ</th></tr></thead><tbody>${PD.dets.map((d, i) =>
+    `<tr data-r="${i}"><th>${d}</th><td><select data-pd="${PD.key(i)}"><option value="">–</option>${PD.opts.map(o => `<option>${o}</option>`).join('')}</select></td></tr>`).join('')}</tbody></table></div>
+    <div class="row"><button class="btn primary" data-pdcheck>Prüfen</button><span class="ok">✓ erledigt</span></div><p class="status" data-o="pdmsg"></p>`;
+  host.querySelectorAll('select').forEach(sel => { sel.value = S.texts[sel.dataset.pd] || ''; sel.onchange = () => { S.texts[sel.dataset.pd] = sel.value; save(); sel.closest('tr').classList.remove('bad'); }; });
+  const msg = host.querySelector('[data-o=pdmsg]');
+  const lock = () => host.querySelectorAll('select,[data-pdcheck]').forEach(x => x.disabled = true);
+  host.querySelector('[data-pdcheck]').onclick = () => {
+    if (PD.dets.some((d, i) => !S.texts[PD.key(i)])) { msg.textContent = 'Bitte zuerst beide Felder ausfüllen.'; return; }
+    const bad = PD.dets.map((d, i) => S.texts[PD.key(i)] === PD.v[i] ? 0 : i + 1).filter(Boolean);
+    PD.dets.forEach((d, i) => host.querySelector(`tr[data-r="${i}"]`).classList.toggle('bad', bad.includes(i + 1)));
+    if (bad.length) { msg.textContent = 'Bildet für jeden Detektor die Differenz der Summen der beiden Möglichkeiten, die zu ihm führen.'; return; }
+    msg.textContent = 'Richtig.'; S.flags['phase-diff'] = true; save(); lock(); render();
+  };
+  if (S.flags['phase-diff']) { msg.textContent = 'Richtig.'; lock(); }
+});
 // Tabelle/Diagramm umschalten
 document.addEventListener('click', e => {
   const b = e.target.closest('[data-view]'); if (!b) return;
@@ -1703,6 +1732,7 @@ DEF['k3-deut'] = { render() { const h = (S.texts['dc-hyp'] || '').trim(), k = IN
 
 /* ===================== Sicherung: Zusammenfassung und PDF ===================== */
 const SUMFN = {
+  phdiff: () => PD.dets.some((d, i) => S.texts[PD.key(i)]) ? [{ q: 'Phasendifferenz', a: PD.dets.map((d, i) => `${d}: ${S.texts[PD.key(i)] || '–'}`).join(', ') }] : [],
   phtab: () => PT.rows.some((r, i) => PT.cols.some((c, j) => S.texts[PT.key(i, j)])) ? [{ q: 'Summe der Phasensprünge', a: PT.rows.map((r, i) => `${r.name} (${r.via}, ${r.det}): ` + PT.cols.map((c, j) => `${c} ${S.texts[PT.key(i, j)] || '–'}`).join(', ')).join('\n') }] : [],
   aufbau(el) {
     const a = el.dataset.a, D = S.a[a], N = D.n1 + D.n2, out = [];
