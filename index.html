@@ -625,6 +625,10 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
         <div class="prose task" data-text="3:Schritt 1 Frage"><p>Beschreibt die Messergebnisse für die Fälle „drin“ und „draußen“. Beurteilt, ob 10 Einzelmessungen für eine sichere Beurteilung der Hypothesen reichen.</p></div>
         <textarea data-save="s1-frage" data-req data-q="Einzelmessungen: Beobachtung"></textarea>
       </div>
+      <div class="step" data-flag="quiz-s1n"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="s1n" data-text="3:Kontrolle Einzelmessungen"><p>Reichen 10 Einzelmessungen für eine sichere Beurteilung der Hypothesen?</p>
+<ul><li>Ja, man sieht schon, welcher Detektor häufiger klickt.</li><li>Nein, die Messergebnisse sind zufällig. Bei wenigen Einzelmessungen kann das Verhältnis der Klicks stark von der Wahrscheinlichkeit abweichen. (richtig)</li></ul>
+<p>Bei falscher Antwort: Führt noch einmal 10 Einzelmessungen durch und vergleicht sie mit der ersten Runde.</p>
+<p>Nach 2 falschen Antworten: Die richtige Antwort ist markiert. Bei nur 10 Einzelmessungen kann das Verhältnis der Klicks zufällig stark schwanken. Deshalb nehmt ihr im nächsten Schritt Messreihen auf.</p></div></div>
     </div></div></div>
 </section>
 
@@ -690,6 +694,10 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
       <div class="prose task" data-text="3:Schritt 4 Frage"><p>Beschreibt in ein bis zwei Sätzen, was ihr in den beiden Diagrammen seht. Beurteilt, ob eure Messreihen bereits ausreichen, um Hypothese A und B bewerten zu können.</p></div>
       <textarea data-save="s4-frage" data-req data-q="Was die Diagramme zeigen"></textarea>
     </div>
+    <div class="step" data-flag="quiz-s4n"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="s4n" data-text="3:Kontrolle Messreihen"><p>Reichen eure Messreihen für eine sichere Beurteilung der Hypothesen?</p>
+<ul><li>Ja, die Mittelwerte zeigen den Verlauf schon eindeutig.</li><li>Nein, es liegen nur wenige Phasendifferenzen mit wenigen Messreihen vor. Dazwischen ist der Verlauf unbekannt. (richtig)</li></ul>
+<p>Bei falscher Antwort: Zählt, bei wie vielen Phasendifferenzen ihr gemessen habt, und schaut, was zwischen diesen Punkten im Diagramm steht.</p>
+<p>Nach 2 falschen Antworten: Die richtige Antwort ist markiert. Mit wenigen Phasendifferenzen bleibt offen, wie die Zählraten dazwischen verlaufen. Deshalb übernimmt im nächsten Schritt die Messsoftware einen kompletten Messdurchlauf.</p></div></div>
   </div>
 </section>
 
@@ -735,7 +743,8 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
 <ul><li>Bei „drin“ und bei „draußen“ hängen die Zählraten von Δφ ab.</li><li>Nur bei „drin“ hängen die Zählraten von Δφ ab, bei „draußen“ nicht. (richtig)</li><li>Bei keiner der beiden Einstellungen hängen die Zählraten von Δφ ab.</li></ul>
 <p>Bei falscher Antwort: Schaut euch die beiden Diagramme noch einmal nebeneinander an.</p></div></div>
 <div class="step"><div class="lbl">1 · Abgleich</div><div class="prose task" data-text="3:Deutung 1"><p>Vergleicht eure Vorhersage mit dem Ergebnis. Prüft, welche der beiden Hypothesen mit dem Ergebnis vereinbar ist.</p></div><textarea data-save="deut1" data-req data-q="Abgleich mit der Hypothese"></textarea></div>
-      <div class="step"><div class="lbl">2 · Kausalität</div><div class="prose task" data-text="3:Deutung 2"><p>Zur Erinnerung der Einwand aus der Motivation: Das Photon richtet sich am ersten Strahlteiler nach dem Aufbau. Der Zufallsgenerator hat aber erst entschieden, als das Photon den ersten Strahlteiler schon durchlaufen hatte. Erläutert, warum der Einwand Hypothese A deshalb nicht retten kann.</p></div><textarea data-save="deut2" data-req data-q="Was hätte passieren müssen?"></textarea></div>
+      <div class="step"><div class="lbl">2 · Späte Entscheidung</div><div class="prose task" data-text="3:Deutung 2"><p>Der Zufallsgenerator hat erst entschieden, als das Photon den ersten Strahlteiler schon durchlaufen hatte.</p>
+<ol><li>Betrachtet die Photonen, bei denen Strahlteiler 2 erst danach eingebaut wurde. Leitet aus Hypothese A und aus Hypothese B ab, was ihr an den Detektoren messen müsstet, und vergleicht mit dem Messergebnis bei „drin“.</li><li>Betrachtet die Photonen, bei denen Strahlteiler 2 nicht eingebaut wurde. Leitet aus beiden Hypothesen ab, was ihr messen müsstet, und vergleicht mit dem Messergebnis bei „draußen“.</li><li>Beurteilt, welche der beiden Hypothesen mit beiden Fällen vereinbar ist.</li></ol></div><textarea data-save="deut2" data-req data-q="Späte Entscheidung und Hypothesen" placeholder="1. … 2. … 3. …"></textarea></div>
       <div class="step"><div class="lbl">3 · Ohne Wege</div><div class="prose task" data-text="3:Deutung 3"><p>Beschreibt das Ergebnis, ohne über Orte des Photons zu sprechen. Sagt nur, wie der Aufbau zum Zeitpunkt der Messung aussah und welche Klicks gemessen wurden.</p></div><textarea data-save="deut3" data-req data-q="Beschreibung ohne Wege"></textarea></div>
       <div class="step"><div class="callout prose"><h3>Deutung</h3><div data-text="3:Deutung der Physik"><p><b>Unbestimmtheit:</b> Ob das Photon reflektiert oder transmittiert wurde, ist nicht nur unbekannt, es steht nicht fest. Man nennt das objektiv unbestimmt. Feststellen können wir nur das Messergebnis: Bei ausgebautem Strahlteiler 2 wissen wir, welcher Detektor geklickt hat. Wann vorher etwas feststand, lässt sich nicht sagen. Wer dem Photon trotzdem einen Ort zuschreibt, kommt zu Widersprüchen.</p>
 <p><b>Kausalität:</b> Sie bleibt erhalten. Je nach Aufbau zum Zeitpunkt der Messung erhalten wir das erwartete Ergebnis, und zwar unabhängig davon, wann die Entscheidung über den Aufbau gefallen ist. Eine Wirkung in die Vergangenheit braucht man dafür nicht.</p>
@@ -1553,14 +1562,22 @@ document.querySelectorAll('.quiz').forEach(q => {
   // optional: Absatz „Bei richtiger Antwort: …“ ersetzt das schlichte „Richtig.“
   const rp = [...q.querySelectorAll('p')].find(p => /^Bei richtiger Antwort:/.test(p.textContent));
   const okText = rp ? rp.innerHTML.replace(/^Bei richtiger Antwort:\s*/, '') : 'Richtig.'; rp?.remove();
+  // optional: Absatz „Nach 2 falschen Antworten: …“ zeigt die richtige Antwort, damit es weitergeht
+  const ap = [...q.querySelectorAll('p')].find(p => /^Nach (\d+) falschen Antworten:/.test(p.textContent));
+  const giveUp = ap ? +ap.textContent.match(/^Nach (\d+)/)[1] : 0, giveText = ap ? ap.innerHTML.replace(/^Nach \d+ falschen Antworten:\s*/, '') : ''; ap?.remove();
   q.insertAdjacentHTML('beforeend', `<div class="opts">${opts.map((o, i) => `<button class="opt" data-i="${i}">${o.html}</button>`).join('')}</div><p class="status"></p>`);
   const fb = q.querySelector('.status');
   const mark = () => q.querySelectorAll('.opt').forEach((b, i) => { b.classList.toggle('right', S.quiz[k] === i); b.disabled = S.quiz[k] != null; });
   q.querySelectorAll('.opt').forEach((b, i) => b.onclick = () => {
     if (opts[i].ok) { S.quiz[k] = i; S.flags['quiz-' + k] = true; fb.innerHTML = okText; save(); mark(); render(); }
-    else { b.classList.add('wrong'); fb.innerHTML = hint; }
+    else {
+      b.classList.add('wrong'); fb.innerHTML = hint;
+      S.quiz[k + '#n'] = (S.quiz[k + '#n'] || 0) + 1;
+      if (giveUp && S.quiz[k + '#n'] >= giveUp) { S.quiz[k] = opts.findIndex(o => o.ok); S.quiz[k + '#g'] = true; S.flags['quiz-' + k] = true; fb.innerHTML = giveText; mark(); render(); }
+      save();
+    }
   });
-  if (S.quiz[k] != null) fb.innerHTML = okText;
+  if (S.quiz[k] != null) fb.innerHTML = S.quiz[k + '#g'] ? giveText : okText;
   mark();
 });
 
