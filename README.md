@@ -3,3 +3,7 @@
 Lernumgebung des foeXlab (Leibniz Universität Hannover) für den Kurs „Mach-Zehnder-Interferometer“: drei Aufbauten, Quantenradierer und delayed choice.
 
 `index.html` ist eine einzelne, vollständige Datei. Sie wird aus den bearbeitbaren Quelltexten (Ordner „MZI einzelne Photonen“, `Aktualisieren.command`) erzeugt. Diese öffentliche Fassung nutzt Helvetica/Arial statt der Hausschrift Rotis.
+
+## Die Blackbox öffnen
+
+`blackbox-oeffnen.html`: Stationsarbeit zur Vorbereitung auf das Realexperiment zur Koinzidenzmethode im foeXlab (Detektoren, Dunkelzählrate, Koinzidenzen, Photonenpaare, angekündigte Photonen). Sie wird aus dem Quellordner „Blackbox oeffnen MZI-Add-on“ erzeugt (`Blackbox_oeffnen_Stationsarbeit_Weitergabe.html`), ebenfalls ohne Rotis.
