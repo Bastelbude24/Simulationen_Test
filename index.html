@@ -441,9 +441,6 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
           <div class="photo" data-photo="a3-skizze" data-q="Skizze: Muster am realen Aufbau und Detektor 1"></div>
           <textarea data-save="a3-leit" data-req data-q="Zuordnung der Schirme zu den Detektoren"></textarea>
         </div>
-      </div></div></div>
-  <div class="wide"><div class="widesketch card"></div>
-    <div class="col"><div class="steps">
         <div class="step" data-flag="pd-first">
           <div class="lbl">E · Phasendifferenz</div>
           <div class="card prose" data-text="1:Phasensprünge Info"><p>Auf den Schirmen des realen Aufbaus sind gegensätzliche Interferenzmuster zu beobachten, an den Detektoren der Simulation gegensätzliche Zählraten. Diese werden durch Phasendifferenzen hervorgerufen, die bei Reflexionen an den Bauteilen entstehen. Für die Bauteile im Interferometer gilt:</p>
@@ -1294,7 +1291,7 @@ function render(entering = false) {
   // Aufgaben nacheinander freigeben
   let open = true, newStep = null;
   pg.querySelectorAll('.step').forEach(st => {
-    if (st.dataset.skip && S.flags[st.dataset.skip] && !TEACH) { st.hidden = true; return; }
+    if (st.dataset.skip && S.flags[st.dataset.skip]) { st.hidden = true; return; }
     st.hidden = !open && !TEACH;
     if (!st.hidden && !shown.has(st)) { shown.add(st); if (!entering && !newStep) newStep = st; }
     const d = stepDone(st);
