@@ -370,6 +370,7 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
 @media (min-width:1001px){.wide>.widesketch{position:sticky;top:64px}}
 @media (max-width:1000px){.wide{grid-template-columns:minmax(0,1fr)}}
 .widesketch svg{width:100%;height:auto;display:block}
+.teachnote{margin:0 0 12px;padding:8px 12px;border-left:4px solid #e8820c;background:#fdf3e6;font-size:15px}
 
 </style>
 </head>
@@ -450,6 +451,7 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
         </div>
         <div class="step" data-flag="phase-tab" data-skip="pd-direct">
           <div class="lbl">E · Phasensprünge Schritt für Schritt</div>
+          <p class="teachnote" hidden>Hinweis für Lehrkräfte: Diese Tabelle und die folgende Phasendifferenz-Aufgabe erscheinen nur, wenn die Phasendifferenz in der vorherigen Aufgabe falsch angegeben wurde.</p>
           <div class="prose task" data-text="1:Phasensprünge Aufgabe"><p>Ermittelt für alle vier denkbaren Möglichkeiten von der Quelle zu einem der beiden Detektoren die Phasensprünge an jedem Bauteil und deren Summe. Nutzt dazu die Skizze der Simulation. Wählt in jedem Feld einen Wert aus und prüft dann die Tabelle.</p></div>
           <div class="phtab" data-phtab></div>
           <i data-sumfn="phtab" hidden></i>
@@ -1913,7 +1915,7 @@ $('pdfDown').onclick = () => {
 // Programm läuft: Warnhinweis ausblenden
 $('jsWarn').hidden = true;
 document.querySelectorAll('[data-demo]').forEach(b => { if ((b.dataset.demo === '1') === TEACH) b.hidden = true; b.onclick = () => setDemo(b.dataset.demo === '1'); });
-$('demoTag').hidden = !TEACH;
+$('demoTag').hidden = !TEACH; document.querySelectorAll('.teachnote').forEach(e => e.hidden = !TEACH);
 // Beim Öffnen: gespeicherten Stand fortsetzen oder neu beginnen
 const hasWork = () => S.max > 1 || Object.values(S.texts).some(v => v) || Object.keys(MEDIA).some(k => k.startsWith('ink:') || k.startsWith('photo:'));
 mediaLoad().then(() => {
