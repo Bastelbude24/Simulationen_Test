@@ -410,7 +410,7 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
 <!-- ===================== Kapitel 1 ===================== -->
 <section class="page" id="k1-start" data-ch="1" data-name="Einstieg">
   <div class="lead prose" data-text="1:Einstieg"><p>Aus dem vorherigen Unterricht kennt ihr schon Experimente mit einzelnen Photonen. Im folgenden werdet ihr euch mit drei verschiedenen experimentellen Aufbauten beschäftigen.</p></div>
-  <div class="card prose" data-text="1:So arbeitet ihr"><p>Eine Einzelphotonenquelle emittieren immer genau ein Photon. Und ein Photon misst das Photon als Klick. Die Simulation zeigt  die Bauteile und die Klicks, so wie im echten Experiment.</p>
+  <div class="card prose" data-text="1:So arbeitet ihr"><p>Eine Einzelphotonenquelle emittiert immer genau ein Photon. Ein Detektor registriert das Photon als Klick. Die Simulation zeigt die Bauteile und die Klicks, so wie im echten Experiment.</p>
 <p>Bei jedem Aufbau geht ihr in drei Schritten vor:</p>
 <ol><li><b>Hypothese:</b> Stellt eine Hypothese auf und begründet sie.</li><li><b>Überprüfen:</b> Führt das Experiment mit der Simulation durch.</li><li><b>Abgleich:</b> Vergleicht Hypothese und Ergebnis.</li></ol>
 <p>Die nächste Aufgabe erscheint erst, wenn die aktuelle erledigt ist. „Weiter“ wird frei, wenn alle Aufgaben einer Seite erledigt sind.</p></div>
@@ -438,7 +438,7 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
         </div>
         <div class="step" data-flag="phase-tab">
           <div class="lbl">E · Phasensprünge</div>
-          <div class="card prose" data-text="1:Phasensprünge Info"><p>Auf euren Schirmen des realen Experiments und auf den Detektoren der Simulation sind gegensätzliche Interferenzmuster zu beobachten. Diese werden durch eine Phasendifferenz durch Wechselwirkung mit den Bauteilen hervorgerufen.  Bei der Reflexion an einem Bauteil kann ein Phasensprung auftreten. Für die Bauteile im Interferometer gilt:</p>
+          <div class="card prose" data-text="1:Phasensprünge Info"><p>Auf euren Schirmen des realen Experiments und auf den Detektoren der Simulation sind gegensätzliche Interferenzmuster zu beobachten. Diese werden durch Phasendifferenzen hervorgerufen, die bei Reflexionen an den Bauteilen entstehen. Für die Bauteile im Interferometer gilt:</p>
 <ul><li><b>Strahlteiler:</b> Bei der Reflexion entsteht ein Phasensprung von π/2, bei der Transmission ändert sich die Phase nicht.</li><li><b>Spiegel:</b> Bei der Reflexion entsteht ein Phasensprung von π.</li></ul></div>
           <div class="prose task" data-text="1:Phasensprünge Aufgabe"><p>Ermittelt für alle vier denkbaren Möglichkeiten von der Quelle zu einem der beiden Detektoren die Phasensprünge an jedem Bauteil und deren Summe. Nutzt dazu die Skizze der Simulation. Wählt in jedem Feld einen Wert aus und prüft dann die Tabelle.</p></div>
           <div class="phtab" data-phtab></div>
@@ -464,11 +464,11 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
 
 <section class="page" id="k1-phase" data-ch="1" data-name="Spiegel verschieben">
   <div class="lab"><div class="benchslot"></div>
-    <div class="col"><div class="lead prose" data-text="1:Spiegel Einleitung"><p>Am realen Aufbau wandern die Ringe, wenn man einen Spiegel ein klein wenig verschiebt. Dies geschieht schon, wenn man mit dem Finger vorsichtig auf das Breadboard drückt. Dabei ändert sich die <b>Phasendifferenz Δφ</b> zwischen den klassisch denkbaren Möglichkeiten . Bisher war in den Simulationen die Annahme Δφ = 0°. Jetzt untersucht ihr, was eine andere Phasendifferenz für Experimente mit einzelnen Photonen bedeutet.</p></div>
+    <div class="col"><div class="lead prose" data-text="1:Spiegel Einleitung"><p>Am realen Aufbau verändern sich die Interferenzmuster auf den Schirmen, wenn man beispielsweise mit dem Finger vorsichtig auf das Breadboard drückt. Dabei ändert sich die <b>Phasendifferenz Δφ</b> zwischen den klassisch denkbaren Möglichkeiten. Bisher war in den Simulationen die Annahme Δφ = 0°. Jetzt untersucht ihr systematisch, welchen Einfluss die Phasendifferenz auf die Zählraten der Detektoren hat.</p></div>
       <div class="steps">
         <div class="step" data-lock data-btn="Hypothese festhalten">
           <div class="lbl">A · Hypothese</div>
-          <div class="prose task" data-text="1:Spiegel Hypothese"><p>Stellt eine Hypothese auf, wie sich die Verteilung der Klicks ändert, wenn ihr Δφ von 0° bis 360° erhöht. Begründet sie mit dem, was ihr am realen Aufbau seht.</p></div>
+          <div class="prose task" data-text="1:Spiegel Hypothese"><p>Stellt eine Hypothese auf, wie sich die Zählraten der beiden Detektoren ändern, wenn ihr Δφ von 0° bis 360° erhöht. Begründet die Hypothese mithilfe von Beobachtungen am realen Aufbau.</p></div>
           <textarea data-save="ph-hyp" data-req data-q="Hypothese" placeholder="Wir erwarten …, weil …"></textarea>
         </div>
         <div class="step" data-flag="ph-meas">
@@ -488,12 +488,12 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
 <p>Bei falscher Antwort: Schaut euch eure Messungen als Diagramm an.</p></div></div>
 <div class="step">
           <div class="lbl">C · Abgleich</div>
-          <div class="prose task" data-text="1:Spiegel Abgleich"><p>Beschreibt, wie der Anteil der Klicks an Detektor 1 und an Detektor 2 von Δφ abhängt. Vergleicht mit eurer Hypothese.</p></div>
+          <div class="prose task" data-text="1:Spiegel Abgleich"><p>Beschreibt den Einfluss der zusätzlichen Phasendifferenz Δφ auf die Zählraten der Detektoren. Vergleicht mit eurer Hypothese.</p></div>
           <textarea data-save="ph-abgl" data-req data-q="Abgleich" placeholder="Der Anteil an Detektor 1 …"></textarea>
         </div>
         <div class="step">
           <div class="lbl">D · Realer Aufbau</div>
-          <div class="prose task" data-text="1:Spiegel realer Aufbau"><p>Erklärt, warum die Lage von konstruktiver und destruktiver Interferenz am realen Aufbau von der Theorie abweicht.</p></div>
+          <div class="prose task" data-text="1:Spiegel realer Aufbau"><p>Am realen Aufbau kann abweichend von der Theorie konstruktive und destruktive Interferenz auf dem jeweils anderen Schirm auftreten. Erklärt diese Abweichung mithilfe eurer Erkenntnisse aus der Simulation.</p></div>
           <textarea data-save="ph-real" data-req data-q="Abweichung des realen Aufbaus"></textarea>
         </div>
         <div class="step">
@@ -508,7 +508,7 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
 <section class="page" id="k2-frage" data-ch="2" data-name="Ausgangsfrage">
   <div class="narrow">
     <div class="lead prose" data-text="2:Einleitung"><p>In diesem Kapitel arbeitet ihr am realen Aufbau, nicht mit der Simulation. Dort seht ihr klassisch erklärbare Interferenzmuster, die durch Lichtwellen entstehen. Um es mit den Einzelphotonen-Experimenten zu vergleichen, betrachten wir nur die Mitten der Muster. Dann gilt: Wo das Muster hell ist, klickt ein Detektor an dieser Stelle mit hoher Wahrscheinlichkeit. Wo es dunkel ist, klickt er nie.</p></div>
-    <div class="card prose" data-text="2:Ausgangsfrage"><p>In Aufbau 3 klickt nur Detektor 1. Bisher war diese Frage immer untersagt: <b> Wie gelangt das Photon von der Quelle zum Detektor?</b> Dazu untersucht ihr zwei experimentelle Idee.</p>
+    <div class="card prose" data-text="2:Ausgangsfrage"><p>In Aufbau 3 klickt nur Detektor 1. Bisher war diese Frage immer untersagt: <b>Wie gelangt das Photon von der Quelle zum Detektor?</b> Dazu untersucht ihr zwei experimentelle Idee.</p>
 <p>Experimentelle Idee I: Wir machen die Möglichkeiten unterscheidbar. Dazu stellt ihr in jeden Arm des Interferometers einen Polarisationsfilter. Stehen die Polarisationsfilter gekreuzt (0° und 90°), unterscheiden sich die beiden Möglichkeiten in der Polarisation.</p></div>
     <figure class="card sketch"><div class="svgwrap"><svg id="polSketch" viewBox="0 0 820 460" role="img" aria-label="Skizze: Interferometer mit Polarisationsfiltern in beiden Armen"></svg></div><figcaption>Skizze zu Prüfidee I: realer Aufbau mit je einem Polarisationsfilter in beiden Armen</figcaption></figure>
     <div class="steps">
