@@ -438,7 +438,7 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
         </div>
         <div class="step" data-flag="phase-tab">
           <div class="lbl">E · Phasensprünge</div>
-          <div class="card prose" data-text="1:Phasensprünge Info"><p>Auf euren Schirmen des realen Experiments und auf den Detektoren der Simulation sind gegensätzliche Interferenzmuster zu beobachten. Diese werden durch Phasendifferenzen hervorgerufen, die bei Reflexionen an den Bauteilen entstehen. Für die Bauteile im Interferometer gilt:</p>
+          <div class="card prose" data-text="1:Phasensprünge Info"><p>Auf den Schirmen des realen Aufbaus sind gegensätzliche Interferenzmuster zu beobachten, an den Detektoren der Simulation gegensätzliche Zählraten. Diese werden durch Phasendifferenzen hervorgerufen, die bei Reflexionen an den Bauteilen entstehen. Für die Bauteile im Interferometer gilt:</p>
 <ul><li><b>Strahlteiler:</b> Bei der Reflexion entsteht ein Phasensprung von π/2, bei der Transmission ändert sich die Phase nicht.</li><li><b>Spiegel:</b> Bei der Reflexion entsteht ein Phasensprung von π.</li></ul></div>
           <div class="prose task" data-text="1:Phasensprünge Aufgabe"><p>Ermittelt für alle vier denkbaren Möglichkeiten von der Quelle zu einem der beiden Detektoren die Phasensprünge an jedem Bauteil und deren Summe. Nutzt dazu die Skizze der Simulation. Wählt in jedem Feld einen Wert aus und prüft dann die Tabelle.</p></div>
           <div class="phtab" data-phtab></div>
@@ -483,8 +483,8 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
             <label class="chk"><input type="checkbox" id="phTheory"> <span>Theoretischen Verlauf einblenden</span></label></div>
         </div>
         <i data-sumfn="phase" hidden></i>
-        <div class="step" data-flag="quiz-ph"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="ph" data-text="1:Kontrolle Spiegel"><p>Wie hängt der Anteil der Klicks an Detektor 1 von Δφ ab?</p>
-<ul><li>Er bleibt bei allen Δφ ungefähr gleich.</li><li>Er ändert sich mit Δφ zwischen fast 100 % und fast 0 %. (richtig)</li><li>Er ändert sich nur bei genau einem Wert von Δφ.</li></ul>
+        <div class="step" data-flag="quiz-ph"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="ph" data-text="1:Kontrolle Spiegel"><p>Wie hängt die Zählrate an Detektor 1 von Δφ ab?</p>
+<ul><li>Sie bleibt bei allen Δφ ungefähr gleich.</li><li>Sie ändert sich mit Δφ zwischen nahezu 100 % und nahezu 0 %. (richtig)</li><li>Sie ändert sich nur bei genau einem Wert von Δφ.</li></ul>
 <p>Bei falscher Antwort: Schaut euch eure Messungen als Diagramm an.</p></div></div>
 <div class="step">
           <div class="lbl">C · Abgleich</div>
@@ -508,13 +508,13 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
 <section class="page" id="k2-frage" data-ch="2" data-name="Ausgangsfrage">
   <div class="narrow">
     <div class="lead prose" data-text="2:Einleitung"><p>In diesem Kapitel arbeitet ihr am realen Aufbau, nicht mit der Simulation. Dort seht ihr klassisch erklärbare Interferenzmuster, die durch Lichtwellen entstehen. Um es mit den Einzelphotonen-Experimenten zu vergleichen, betrachten wir nur die Mitten der Muster. Dann gilt: Wo das Muster hell ist, klickt ein Detektor an dieser Stelle mit hoher Wahrscheinlichkeit. Wo es dunkel ist, klickt er nie.</p></div>
-    <div class="card prose" data-text="2:Ausgangsfrage"><p>In Aufbau 3 klickt nur Detektor 1. Bisher war diese Frage immer untersagt: <b>Wie gelangt das Photon von der Quelle zum Detektor?</b> Dazu untersucht ihr zwei experimentelle Idee.</p>
+    <div class="card prose" data-text="2:Ausgangsfrage"><p>In Aufbau 3 klickt nur Detektor 1. Bisher war diese Frage immer untersagt: <b>Wie gelangt das Photon von der Quelle zum Detektor?</b> Dazu untersucht ihr zwei experimentelle Ideen.</p>
 <p>Experimentelle Idee I: Wir machen die Möglichkeiten unterscheidbar. Dazu stellt ihr in jeden Arm des Interferometers einen Polarisationsfilter. Stehen die Polarisationsfilter gekreuzt (0° und 90°), unterscheiden sich die beiden Möglichkeiten in der Polarisation.</p></div>
     <figure class="card sketch"><div class="svgwrap"><svg id="polSketch" viewBox="0 0 820 460" role="img" aria-label="Skizze: Interferometer mit Polarisationsfiltern in beiden Armen"></svg></div><figcaption>Skizze zu Prüfidee I: realer Aufbau mit je einem Polarisationsfilter in beiden Armen</figcaption></figure>
     <div class="steps">
       <div class="step" data-lock data-btn="Hypothese festhalten">
         <div class="lbl">A · Hypothese</div>
-        <div class="prose task" data-text="2:Hypothese Polarisationsfilter"><p>Stellt eine Hypothese auf, wie das Muster aussieht, wenn beide Polarisationsfilter parallel stehen und wenn sie gekreuzt stehen. Begründet eure Hypothese.</p></div>
+        <div class="prose task" data-text="2:Hypothese Polarisationsfilter"><p>Stellt eine Hypothese auf, wie das Muster aussieht, wenn beide Polarisationsfilter parallel stehen und wenn sie gekreuzt stehen. Begründet eure Hypothese mithilfe eurer Ergebnisse aus Kapitel 1.</p></div>
         <textarea data-save="qr-hyp1" data-req data-q="Hypothese Polarisationsfilter" placeholder="Parallel erwarten wir …, gekreuzt …, weil …"></textarea>
       </div>
     </div>
@@ -547,12 +547,12 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
     <div class="step" data-lock data-btn="Hypothese festhalten">
       <div class="lbl">A · Hypothese</div>
       <div class="prose task" data-text="2:Radierer Hypothese"><p>Die Polarisationsfilter in den Armen bleiben gekreuzt. Jetzt setzt ihr einen dritten Polarisationsfilter (Analysator) in <b>einen</b> der beiden Ausgänge, zuerst so, dass er genauso steht wie einer der beiden Polarisationsfilter in den Armen (0° oder 90°). Am anderen Ausgang steht kein Analysator.</p>
-<p>Stellt eine Hypothese auf, was ihr hinter dem Analysator seht und was passiert, wenn ihr den Analysator anschließend langsam dreht. Begründet eure Hypothese.</p></div>
+<p>Stellt eine Hypothese auf, was ihr hinter dem Analysator seht und was passiert, wenn ihr den Analysator anschließend langsam dreht. Begründet eure Hypothese mithilfe eurer bisherigen Beobachtungen am realen Aufbau.</p></div>
       <textarea data-save="qr-hyp2" data-req data-q="Hypothese Analysator" placeholder="Hinter dem Analysator erwarten wir …, am anderen Ausgang …"></textarea>
     </div>
     <div class="step">
       <div class="lbl">B · Überprüfen am realen Aufbau</div>
-      <div class="prose task" data-text="2:Radierer überprüfen"><ol><li>Setzt den Analysator auf 0° oder 90° ein. Beschreibt das Muster dahinter.</li><li>Dreht den Analysator langsam, während er eingebaut bleibt. Untersucht, wie sich das Muster verändert.</li><li>Ermittelt den Winkel, bei dem das Muster am besten zu sehen ist, und protokolliert das Muster mit einem Foto. Untersucht, ob es einen zweiten Winkel gibt, bei dem es gut zu sehen ist, und protokolliert auch dieses Muster.</li><li>Untersucht, ob sich am Ausgang ohne Analysator etwas ändert, wenn ihr den Analysator einsetzt oder dreht.</li></ol></div>
+      <div class="prose task" data-text="2:Radierer überprüfen"><ol><li>Setzt den Analysator auf 0° oder 90° ein. Beschreibt das Muster dahinter.</li><li>Dreht den Analysator langsam, während er eingebaut bleibt. Untersucht den Einfluss des Analysatorwinkels auf das Interferenzmuster.</li><li>Ermittelt den Winkel, bei dem das Muster am besten zu sehen ist, und protokolliert das Muster mit einem Foto. Untersucht, ob es einen zweiten Winkel gibt, bei dem es gut zu sehen ist, und protokolliert auch dieses Muster.</li><li>Untersucht den Einfluss des Analysators auf das Interferenzmuster am Ausgang ohne Analysator.</li></ol></div>
       <div class="photos"><div class="photo" data-photo="rad-p45" data-q="Foto: Muster am besten sichtbar"></div><div class="photo" data-photo="rad-m45" data-q="Foto: zweiter Winkel"></div></div>
       <label class="lbl">Beobachtungen</label><textarea data-save="qr-rad" data-req data-q="Beobachtungen" placeholder="1. … 2. … 3. … 4. …"></textarea>
     </div>
@@ -637,9 +637,9 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
         <textarea data-save="s1-frage" data-req data-q="Einzelmessungen: Beobachtung"></textarea>
       </div>
       <div class="step" data-flag="quiz-s1n"><div class="lbl">Kurze Kontrolle</div><div class="quiz" data-quiz="s1n" data-text="3:Kontrolle Einzelmessungen"><p>Reichen 10 Einzelmessungen für eine sichere Beurteilung der Hypothesen?</p>
-<ul><li>Ja, man sieht schon, welcher Detektor häufiger klickt.</li><li>Nein, die Messergebnisse sind zufällig. Bei wenigen Einzelmessungen kann das Verhältnis der Klicks stark von der Wahrscheinlichkeit abweichen. (richtig)</li></ul>
+<ul><li>Ja, man sieht schon, an welchem Detektor die Zählrate größer ist.</li><li>Nein, die Messergebnisse sind zufällig. Bei wenigen Einzelmessungen kann die Häufigkeitsverteilung der Messergebnisse stark von der Wahrscheinlichkeit abweichen. (richtig)</li></ul>
 <p>Bei falscher Antwort: Führt noch einmal 10 Einzelmessungen durch und vergleicht sie mit der ersten Runde.</p>
-<p>Nach 2 falschen Antworten: Die richtige Antwort ist markiert. Bei nur 10 Einzelmessungen kann das Verhältnis der Klicks zufällig stark schwanken. Deshalb nehmt ihr im nächsten Schritt Messreihen auf.</p></div></div>
+<p>Nach 2 falschen Antworten: Die richtige Antwort ist markiert. Bei nur 10 Einzelmessungen kann die Häufigkeitsverteilung der Messergebnisse zufällig stark schwanken. Deshalb nehmt ihr im nächsten Schritt Messreihen auf.</p></div></div>
     </div></div></div>
 </section>
 
@@ -691,7 +691,7 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
       <div class="prose task" data-text="3:Schritt 4"><p><b>Sortieren und mitteln.</b> Ordnet jede Zeile der Tabelle einem der beiden Diagramme zu. Entscheidend ist, was der Zufallsgenerator gewählt hat.</p></div>
       <p class="status" id="s4Status"></p>
       <div class="tablewrap"><table class="mw sort"><thead><tr><th>Messreihe</th><th>Δφ</th><th>Zufallsgenerator wählte</th><th>Klicks D1</th><th>Klicks D2</th><th>In welches Diagramm?</th></tr></thead><tbody id="s4Log"></tbody></table></div>
-      <div class="note prose" style="margin-top:16px" data-text="3:Mittelwert"><p>In die Diagramme wird für jede Phasendifferenz der <b>Mittelwert</b> eingetragen. Beispiel: Habt ihr bei einer Phasendifferenz zwei Messreihen mit 120 und 130 Klicks an einem Detektor, wird (120 + 130) : 2 = 125 Klicks pro Sekunde eingetragen. Blau ist Detektor 1, rot ist Detektor 2. Die Tabelle unter den Diagrammen zeigt, aus wie vielen Messreihen jeder Mittelwert gebildet ist.</p></div>
+      <div class="note prose" style="margin-top:16px" data-text="3:Mittelwert"><p>In die Diagramme wird für jede Phasendifferenz der <b>Mittelwert</b> eingetragen. Beispiel: Habt ihr bei einer Phasendifferenz zwei Messreihen mit den Zählraten 120 und 130 pro Sekunde an einem Detektor, wird (120 + 130) : 2 = 125 pro Sekunde eingetragen. Blau ist Detektor 1, rot ist Detektor 2. Die Tabelle unter den Diagrammen zeigt, aus wie vielen Messreihen jeder Mittelwert gebildet ist.</p></div>
       <div class="diagrams">
         <div class="diagram"><h4>Strahlteiler 2 drin</h4><div class="chart" id="s4In"></div></div>
         <div class="diagram"><h4>Strahlteiler 2 draußen</h4><div class="chart" id="s4Out"></div></div>
@@ -739,7 +739,7 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
     <div class="step">
       <div class="lbl">Ergebnis beschreiben</div>
       <div class="prose task" data-text="3:Ergebnis"><p>Beschreibt das Ergebnis des Messdurchlaufs. Geht auf beide Diagramme ein:</p>
-<ul><li>Wie hängen die Zählraten an Detektor 1 und Detektor 2 von Δφ ab?</li><li>Bei welchen Phasendifferenzen klickt nur ein Detektor?</li><li>Wie groß sind die Zählraten, wenn Strahlteiler 2 draußen ist?</li></ul></div>
+<ul><li>Wie hängen die Zählraten an Detektor 1 und Detektor 2 von Δφ ab?</li><li>Bei welchen Phasendifferenzen ist die Zählrate an einem Detektor null?</li><li>Wie groß sind die Zählraten, wenn Strahlteiler 2 draußen ist?</li></ul></div>
       <textarea data-save="erg" data-req data-q="Ergebnis"></textarea>
     </div>
   </div></div>
@@ -756,10 +756,10 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
 <div class="step"><div class="lbl">1 · Abgleich</div><div class="prose task" data-text="3:Deutung 1"><p>Vergleicht eure Vorhersage mit dem Ergebnis. Prüft, welche der beiden Hypothesen mit dem Ergebnis vereinbar ist.</p></div><textarea data-save="deut1" data-req data-q="Abgleich mit der Hypothese"></textarea></div>
       <div class="step"><div class="lbl">2 · Späte Entscheidung</div><div class="prose task" data-text="3:Deutung 2"><p>Der Zufallsgenerator hat erst entschieden, als das Photon den ersten Strahlteiler schon durchlaufen hatte.</p>
 <ol><li>Betrachtet die Photonen, bei denen Strahlteiler 2 erst danach eingebaut wurde. Leitet aus Hypothese A und aus Hypothese B ab, was ihr an den Detektoren messen müsstet, und vergleicht mit dem Messergebnis bei „drin“.</li><li>Betrachtet die Photonen, bei denen Strahlteiler 2 nicht eingebaut wurde. Leitet aus beiden Hypothesen ab, was ihr messen müsstet, und vergleicht mit dem Messergebnis bei „draußen“.</li><li>Beurteilt, welche der beiden Hypothesen mit beiden Fällen vereinbar ist.</li></ol></div><textarea data-save="deut2" data-req data-q="Späte Entscheidung und Hypothesen" placeholder="1. … 2. … 3. …"></textarea></div>
-      <div class="step"><div class="lbl">3 · Ohne Wege</div><div class="prose task" data-text="3:Deutung 3"><p>Beschreibt das Ergebnis, ohne über Orte des Photons zu sprechen. Sagt nur, wie der Aufbau zum Zeitpunkt der Messung aussah und welche Klicks gemessen wurden.</p></div><textarea data-save="deut3" data-req data-q="Beschreibung ohne Wege"></textarea></div>
+      <div class="step"><div class="lbl">3 · Ohne Wege</div><div class="prose task" data-text="3:Deutung 3"><p>Beschreibt das Ergebnis, ohne über Orte des Photons zu sprechen. Sagt nur, wie der Aufbau zum Zeitpunkt der Messung aussah und welche Zählraten gemessen wurden.</p></div><textarea data-save="deut3" data-req data-q="Beschreibung ohne Wege"></textarea></div>
       <div class="step"><div class="callout prose"><h3>Deutung</h3><div data-text="3:Deutung der Physik"><p><b>Unbestimmtheit:</b> Ob das Photon reflektiert oder transmittiert wurde, ist nicht nur unbekannt, es steht nicht fest. Man nennt das objektiv unbestimmt. Feststellen können wir nur das Messergebnis: Bei ausgebautem Strahlteiler 2 wissen wir, welcher Detektor geklickt hat. Wann vorher etwas feststand, lässt sich nicht sagen. Wer dem Photon trotzdem einen Ort zuschreibt, kommt zu Widersprüchen.</p>
 <p><b>Kausalität:</b> Sie bleibt erhalten. Je nach Aufbau zum Zeitpunkt der Messung erhalten wir das erwartete Ergebnis, und zwar unabhängig davon, wann die Entscheidung über den Aufbau gefallen ist. Eine Wirkung in die Vergangenheit braucht man dafür nicht.</p>
-<p><b>Beschreibung ohne Wege:</b> Die Wahrscheinlichkeiten für die Klicks ergeben sich aus dem gesamten Aufbau zum Zeitpunkt der Messung. Ist Strahlteiler 2 drin, sind die beiden Möglichkeiten ununterscheidbar, und es gibt Interferenz. Ist er draußen, klickt jeder Detektor mit der Wahrscheinlichkeit ½.</p>
+<p><b>Beschreibung ohne Wege:</b> Die Wahrscheinlichkeiten für die Messergebnisse ergeben sich aus dem gesamten Aufbau zum Zeitpunkt der Messung. Ist Strahlteiler 2 drin, sind die beiden Möglichkeiten ununterscheidbar, und es gibt Interferenz. Ist er draußen, klickt jeder Detektor mit der Wahrscheinlichkeit ½.</p>
 <p><b>Nichtlokalität:</b> Für die Vorhersage muss man alle Teile des räumlich ausgedehnten Aufbaus gemeinsam betrachten. Man kann dem Photon zwischen Quelle und Detektor keinen bestimmten Weg zuschreiben.</p></div></div></div>
     </div>
   </div>
@@ -873,12 +873,12 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
     <textarea data-save="a{A}-abgl" data-req data-q="Abgleich" placeholder="Unsere Hypothese …"></textarea>
   </div>
 </template>
-<div hidden id="kq-a1" data-text="1:Kontrolle Aufbau 1"><p>Wie haben sich die Klicks in eurer Messung auf die beiden Detektoren verteilt?</p>
-<ul><li>Fast alle Klicks an Detektor 1.</li><li>Ungefähr gleich viele Klicks an beiden Detektoren. (richtig)</li><li>Fast alle Klicks an Detektor 2.</li></ul>
-<p>Bei falscher Antwort: Schaut noch einmal auf eure Zähler und das Messprotokoll.</p></div><div hidden id="kq-a2" data-text="1:Kontrolle Aufbau 2"><p>Wie haben sich die Klicks in eurer Messung auf die beiden Detektoren verteilt?</p>
-<ul><li>Fast alle Klicks an Detektor 1.</li><li>Ungefähr gleich viele Klicks an beiden Detektoren. (richtig)</li><li>Fast alle Klicks an Detektor 2.</li></ul>
-<p>Bei falscher Antwort: Schaut noch einmal auf eure Zähler und das Messprotokoll.</p></div><div hidden id="kq-a3" data-text="1:Kontrolle Aufbau 3"><p>Wie haben sich die Klicks in eurer Messung auf die beiden Detektoren verteilt?</p>
-<ul><li>Fast alle Klicks an Detektor 1. (richtig)</li><li>Ungefähr gleich viele Klicks an beiden Detektoren.</li><li>Fast alle Klicks an Detektor 2.</li></ul>
+<div hidden id="kq-a1" data-text="1:Kontrolle Aufbau 1"><p>Wie verteilen sich die Zählraten in eurer Messung auf die beiden Detektoren?</p>
+<ul><li>Zählrate an Detektor 1 nahezu 100 %, an Detektor 2 nahezu 0 %.</li><li>Ungefähr gleiche Zählraten an beiden Detektoren. (richtig)</li><li>Zählrate an Detektor 1 nahezu 0 %, an Detektor 2 nahezu 100 %.</li></ul>
+<p>Bei falscher Antwort: Schaut noch einmal auf eure Zähler und das Messprotokoll.</p></div><div hidden id="kq-a2" data-text="1:Kontrolle Aufbau 2"><p>Wie verteilen sich die Zählraten in eurer Messung auf die beiden Detektoren?</p>
+<ul><li>Zählrate an Detektor 1 nahezu 100 %, an Detektor 2 nahezu 0 %.</li><li>Ungefähr gleiche Zählraten an beiden Detektoren. (richtig)</li><li>Zählrate an Detektor 1 nahezu 0 %, an Detektor 2 nahezu 100 %.</li></ul>
+<p>Bei falscher Antwort: Schaut noch einmal auf eure Zähler und das Messprotokoll.</p></div><div hidden id="kq-a3" data-text="1:Kontrolle Aufbau 3"><p>Wie verteilen sich die Zählraten in eurer Messung auf die beiden Detektoren?</p>
+<ul><li>Zählrate an Detektor 1 nahezu 100 %, an Detektor 2 nahezu 0 %. (richtig)</li><li>Ungefähr gleiche Zählraten an beiden Detektoren.</li><li>Zählrate an Detektor 1 nahezu 0 %, an Detektor 2 nahezu 100 %.</li></ul>
 <p>Bei falscher Antwort: Schaut noch einmal auf eure Zähler und das Messprotokoll.</p></div>
 
 <footer>
@@ -1095,7 +1095,7 @@ function fitSin(pts) {
   return p => c[0] + c[1] * Math.cos(rad(p)) + c[2] * Math.sin(rad(p));
 }
 const D1 = 'var(--cAB)', D2 = 'var(--cAC)';
-const rateChart = (p1, p2, { empty = 'Noch keine Messwerte.', trend = false, ylabel = 'mittlere Zählrate in Klicks pro Sekunde' } = {}) => chartSVG({ ymax: 600, yticks: [0, 100, 200, 300, 400, 500, 600], ylabel, trend, empty,
+const rateChart = (p1, p2, { empty = 'Noch keine Messwerte.', trend = false, ylabel = 'mittlere Zählrate pro Sekunde' } = {}) => chartSVG({ ymax: 600, yticks: [0, 100, 200, 300, 400, 500, 600], ylabel, trend, empty,
   series: [{ name: 'Detektor 1', color: D1, pts: p1 }, { name: 'Detektor 2', color: D2, shape: 'square', pts: p2 }] });
 // Häufigkeitsdiagramm: relative Häufigkeit der Klicks an D1 und D2, getrennt nach „drin“ und „draußen“
 function freqSVG(groups, empty = 'Noch keine Messung.') {
