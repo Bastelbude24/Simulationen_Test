@@ -6,7 +6,7 @@ Lernumgebung des foeXlab (Leibniz Universität Hannover) für den Kurs „Mach-Z
 
 ## Die Blackbox öffnen
 
-`blackbox-oeffnen.html`: Stationsarbeit zur Vorbereitung auf das Realexperiment zur Koinzidenzmethode im foeXlab (Detektoren, Dunkelzählrate, Koinzidenzen, Photonenpaare, angekündigte Photonen). Sie wird aus dem Quellordner „Blackbox oeffnen MZI-Add-on“ erzeugt (`Blackbox_oeffnen_Stationsarbeit_Weitergabe.html`), ebenfalls ohne Rotis.
+`blackbox-oeffnen.html`: Lernumgebung zur Vorbereitung auf das Realexperiment zur Koinzidenzmethode im foeXlab (Detektoren, Dunkelzählrate, Koinzidenzen, Photonenpaare, angekündigte Photonen; Kapitel 7 im foeXlab). Gleicher Rahmen wie die MZI-Lernumgebungen. Sie wird aus dem Quellordner „Blackbox oeffnen Lernumgebung“ erzeugt (`Blackbox_oeffnen_Lernumgebung_Weitergabe.html`), ohne Rotis.
 
 ## MZI: Aufbau und Justage
 
