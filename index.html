@@ -375,6 +375,12 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
 .teachnote.prose{margin-top:12px}.teachnote ul{margin:6px 0 0;padding-left:22px}
 .stopp p{margin:0}
 .zusatz{margin-top:18px;padding:14px 18px;border:1px dashed var(--fx-orange)}.zusatz textarea{margin-top:10px}
+.zeitung{margin:4px 0 16px;padding:14px 18px 16px;background:#f7f3ea;color:#1d1d1b;border:1px solid #d8d0bd;box-shadow:2px 3px 0 #e6dfcd;font-family:Georgia,"Times New Roman",serif;transform:rotate(-.6deg);max-width:620px}
+.zeitung .zkopf{font-family:"Old English Text MT","UnifrakturMaguntia",Georgia,serif;font-size:34px;font-weight:700;text-align:center;letter-spacing:.5px;border-bottom:3px double #1d1d1b;padding-bottom:4px}
+.zeitung .zmeta{display:flex;justify-content:space-between;gap:8px;font-size:12px;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid #1d1d1b;padding:3px 0;margin-bottom:10px}
+.zeitung h4{font-size:25px;line-height:1.15;margin:4px 0 8px;font-weight:700;font-family:Georgia,"Times New Roman",serif;color:#1d1d1b}
+.zeitung h4 p{margin:0}
+.zeitung .zlead p{margin:0;font-size:16px;line-height:1.45;font-style:italic}
 
 </style>
 </head>
@@ -805,7 +811,12 @@ figure.sketch figcaption{font-size:14px;color:var(--muted);margin-top:8px}
       <textarea data-save="k3-leitfrage" data-req data-q="Begründung zur Ausgangsfrage"></textarea>
     </div>
     <div class="step" data-flag="stopp-3"><div class="stopp prose" data-text="4:Stopp"><p>Dieses Ergebnis sollten wir gemeinsam vergleichen. Tauscht euch in der Zwischenzeit mit einer Nachbargruppe aus.</p></div><div class="teachnote prose" data-text="3:Abschluss Lehrkraft" hidden><p>Leitfragen für die Besprechung:</p>
-<ul><li>Warum lässt sich die Ausgangsfrage nicht beantworten?</li><li>Was unterscheidet „objektiv unbestimmt“ von „subjektiv unbestimmt“?</li><li>Warum bleibt die Kausalität im Delayed-Choice-Experiment erhalten?</li></ul></div><div class="zusatz"><div class="lbl">Zusatzaufgabe, falls ihr warten müsst</div><div class="prose task" data-text="3:Zusatzaufgabe Schlagzeile"><p>Eine Zeitschrift titelt über das Delayed-Choice-Experiment: „Photon entscheidet rückwirkend, welchen Weg es genommen hat.“ Beurteilt diese Schlagzeile mithilfe eurer Ergebnisse aus Kapitel 3.</p></div><textarea data-save="zus-k3" data-q="Zusatzaufgabe: Schlagzeile"></textarea></div><div class="row stepbtn"><button class="btn primary" data-done>Die Besprechung ist beendet</button><span class="ok">✓ erledigt</span></div><p class="status" data-o="stepmsg"></p></div>
+<ul><li>Warum lässt sich die Ausgangsfrage nicht beantworten?</li><li>Was unterscheidet „objektiv unbestimmt“ von „subjektiv unbestimmt“?</li><li>Warum bleibt die Kausalität im Delayed-Choice-Experiment erhalten?</li></ul></div><div class="zusatz"><div class="lbl">Zusatzaufgabe, falls ihr warten müsst</div><figure class="zeitung" aria-label="Fiktiver Zeitungsartikel">
+          <div class="zkopf">Quanten-Aktuell</div>
+          <div class="zmeta"><span>Wissenschaft</span><span>fiktive Ausgabe</span><span>Preis: 1 Photon</span></div>
+          <h4 data-text="3:Zeitung Schlagzeile"><p>Photon entscheidet rückwirkend, welchen Weg es genommen hat</p></h4>
+          <div class="zlead" data-text="3:Zeitung Vorspann"><p>Ein Zufallsgenerator legt den Aufbau erst fest, als das Photon längst unterwegs ist. Trotzdem passt das Messergebnis immer zum Aufbau. Hat das Photon seine Vergangenheit nachträglich geändert?</p></div>
+        </figure><div class="prose task" data-text="3:Zusatzaufgabe Schlagzeile"><p>Die Zeitung „Quanten-Aktuell“ berichtet über das Delayed-Choice-Experiment. Beurteilt die Schlagzeile mithilfe eurer Ergebnisse aus Kapitel 3.</p></div><textarea data-save="zus-k3" data-q="Zusatzaufgabe: Schlagzeile"></textarea></div><div class="row stepbtn"><button class="btn primary" data-done>Die Besprechung ist beendet</button><span class="ok">✓ erledigt</span></div><p class="status" data-o="stepmsg"></p></div>
     <div class="step">
       <div class="lbl">Gesamtergebnis</div>
       <div class="prose task" data-text="3:Gesamtergebnis"><p>Fasst das Gesamtergebnis der Besprechung zusammen.</p></div>
