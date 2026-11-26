@@ -1,0 +1,10 @@
+{
+  "name": "Die Blackbox öffnen",
+  "short_name": "Blackbox öffnen",
+  "lang": "de",
+  "start_url": "blackbox-oeffnen.html",
+  "scope": "blackbox-oeffnen.html",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#33416E"
+}
